@@ -24,6 +24,7 @@ public class FieldDefineController {
      * @param deviceName
      * @return
      */
+    // TODO: 2019/5/22 dsf
     @RequestMapping(value = "/queryField",method = RequestMethod.POST)
     public Result queryField(@RequestParam("satelliteId") String satelliteId,
                              @RequestParam("deviceName") String deviceName){

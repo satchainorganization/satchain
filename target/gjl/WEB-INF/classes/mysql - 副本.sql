@@ -1,5 +1,5 @@
 ﻿CREATE TABLE `星座信息表`(
-	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',  
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
 	`星座编号` VARCHAR(32) NOT NULL DEFAULT '',
 	`星座名称` VARCHAR(32) DEFAULT '',
 	`星座类型` TINYINT(4) COMMENT '1:遥感星座 2:通信星座 3456',
@@ -23,15 +23,15 @@ CREATE TABLE `卫星信息表`(
  	`数据下行ERP值` VARCHAR(32) DEFAULT '',
  	`数据上行频率` VARCHAR(32) DEFAULT '',
  	`数据上行接收增益` VARCHAR(32) DEFAULT '',
- 	`业务下行接收增益` VARCHAR(32) DEFAULT '',
+ 	`业务下行频率` VARCHAR(32) DEFAULT '',
  	`业务下行ERP值` VARCHAR(32) DEFAULT '',
  	`业务上行频率` VARCHAR(32) DEFAULT '',
  	`业务上行接收增益` VARCHAR(32) DEFAULT '',
- 	`倾角` FLOAT(10,2),
- 	`升交点赤径` FLOAT(10,2),
- 	`偏心率` FLOAT(10,2),
- 	`半长轴` FLOAT(10,2),
- 	`近地点角距` FLOAT(10,2),
+ 	`倾角` decimal(18,2) DEFAULT '0.00',
+ 	`升交点赤径` decimal(18,2) DEFAULT '0.00',
+ 	`偏心率` FLOAT(10,2) DEFAULT '0.00',
+ 	`半长轴` FLOAT(10,2) DEFAULT '0.00',
+ 	`近地点角距` decimal(18,2) DEFAULT '0.00',
  	`近地点时刻` DATETIME DEFAULT NULL,
 	PRIMARY KEY(`id`),
 	UNIQUE KEY `idx_satellite_uuid` (`卫星编号`)
@@ -50,8 +50,8 @@ CREATE TABLE `地面站信息表`(
 	`数据下行增益` VARCHAR(32) DEFAULT '',
 	`数据上行频率` VARCHAR(32) DEFAULT '',
 	`数据上行ERP值` VARCHAR(32) DEFAULT '',
-	`经度` FLOAT(10,2),
-	`纬度` FLOAT(10,2),
+	`经度` decimal(18,2) DEFAULT '0.00',
+	`纬度` decimal(18,2) DEFAULT '0.00',
 	`IP地址` VARCHAR(32) DEFAULT '',
 	PRIMARY KEY(`id`),
 	UNIQUE KEY `idx_ground_uuid` (`地面站编号`)
@@ -70,11 +70,11 @@ CREATE TABLE `任务分配表`(
 	`任务结束时间` DATETIME,
 	`分发标志` TINYINT(4),
 	`任务标志` TINYINT(1),
-	`ACK` BIGINT(20),
+	`ACK` TINYINT(4),
 	PRIMARY KEY(`id`),
 	UNIQUE KEY `idx_task_uuid` (`任务编号`),
-	UNIQUE KEY `idx_ground_uuid` (`地面站编号`),
-	UNIQUE KEY `idx_satellite_uuid` (`卫星编号`)
+	KEY `idx_ground_uuid` (`地面站编号`),
+	KEY `idx_satellite_uuid` (`卫星编号`)
 )ENGINE=INNODB DEFAULT CHARSET='utf8';
 
 CREATE TABLE `遥控内容表`(
@@ -100,8 +100,9 @@ CREATE TABLE `用户信息表` (
 	`用户名` VARCHAR(16) DEFAULT '',
 	`密码` VARCHAR(16) DEFAULT '',
 	`权限` TINYINT(4) default 11,
-	`创建时间` DATETIME DEFAULT NULL,
-	PRIMARY KEY(`id`)
+	`创建时间` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '创建时间',
+	PRIMARY KEY(`id`),
+	UNIQUE KEY `idx_user_name` (`用户名`)
 )ENGINE=INNODB DEFAULT CHARSET='utf8';
 
 CREATE TABLE `监控信息表`(
@@ -112,3 +113,30 @@ CREATE TABLE `监控信息表`(
 	PRIMARY KEY(`id`),
 	UNIQUE KEY `idx_monitor_uuid` (`监控器编号`)
 )ENGINE=INNODB DEFAULT CHARSET='utf8';
+
+CREATE TABLE `设备关系表`(
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`设备名` VARCHAR(32) DEFAULT '',
+	`父设备名` VARCHAR(32) DEFAULT '',
+	`卫星编号` VARCHAR(32) DEFAULT '',
+	PRIMARY KEY(`id`),
+	UNIQUE KEY `idx_device_name` (`设备名`)
+)ENGINE=INNODB DEFAULT CHARSET='utf8';
+
+CREATE TABLE `字段定义表`(
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`字段名` VARCHAR(32) ,
+	`数据类型` TINYINT(4),
+	`最小值` DOUBLE(10,2),
+	`最大值` DOUBLE(10,2),
+	`单位` VARCHAR(32) ,
+	`显示标志` TINYINT(1) ,
+	`设备名` VARCHAR(32) ,
+	`卫星编号` VARCHAR(32) ,
+	PRIMARY KEY(`id`),
+	UNIQUE KEY `idx_field_define` (`字段名`)
+)ENGINE=INNODB DEFAULT CHARSET='utf8';
+
+
+
+

@@ -18,12 +18,12 @@
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
-    select 
+    select
     <include refid="Base_Column_List" />
-    from field_define
+    from `字段定义表`
     <where>
       <if test="satelliteId != null" >
-        and moon_num = #{satelliteId}
+        and moon_num = #{satelliteUuid}
       </if>
       <if test="deviceName != null" >
         and device_name = #{deviceName}
@@ -31,13 +31,13 @@
     </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from field_define
+    delete from `字段定义表`
     where id = #{id}
   </delete>
 
   <insert id="insert" parameterType="com.satchain.bean.model.FieldDefine" >
-    insert into field_define (id, field_name, data_type, 
-      min_data, max_data, unit, 
+    insert into `字段定义表` (id, field_name, data_type,
+      min_data, max_data, unit,
       show_lable, device_name, moon_num
       )
     values (#{id}, #{fieldName}, #{dataType},
@@ -46,7 +46,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.satchain.bean.model.FieldDefine" >
-    insert into field_define
+    insert into `字段定义表`
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -108,7 +108,7 @@
   </insert>
 
   <update id="updateByPrimaryKeySelective" parameterType="com.satchain.bean.model.FieldDefine" >
-    update field_define
+    update `字段定义表`
     <set >
       <if test="fieldName != null" >
         field_name = #{fieldName},
@@ -138,7 +138,7 @@
     where id = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.satchain.bean.model.FieldDefine" >
-    update field_define
+    update `字段定义表`
     set field_name = #{fieldName},
       data_type = #{dataType},
       min_data = #{minData},

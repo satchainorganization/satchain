@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
+// TODO: 2019/5/22 dsf
 public class EarthinfoController {
     @Autowired
     private EarthinfoService earthinfoService;

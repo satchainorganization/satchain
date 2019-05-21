@@ -23,6 +23,7 @@ public class DeviceRelationController {
      * @param satelliteId
      * @return
      */
+    // TODO: 2019/5/21 dsf
     @RequestMapping(value = "/queryDeviceRelation",method = RequestMethod.POST)
     public Result queryDeviceRelation(@RequestParam("satelliteId") String satelliteId){
         Assert.notNull(satelliteId,"参数错误！");
