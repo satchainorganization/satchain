@@ -1,5 +1,8 @@
 package com.satchain.bean.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -16,14 +19,19 @@ public class Taskinfo {
 
     private Integer taskType;//任务类型 TODO 有改动，long改為int
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date taskReleaseTime;//任务发布时间
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date planStartTime;//计划开始时间
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date planEndTime;//计划截止时间
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date taskStartTime;//任务开始时间
 
+    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date taskEndTime;//任务结束时间
 
     private Integer distributionFlag;//分发标志 TODO byte 改为int
@@ -109,6 +117,10 @@ public class Taskinfo {
     }
 
     public void setTaskEndTime(Date taskEndTime) {
+        this.taskEndTime = taskEndTime;
+    }
+
+    public void setTaskEndTime(Timestamp taskEndTime) {
         this.taskEndTime = taskEndTime;
     }
 

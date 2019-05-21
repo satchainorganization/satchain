@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -78,9 +80,16 @@ public class TaskAssignmentService {
      * @return
      */
     public Integer addTask(AddTaskBO bo){
-        Timestamp startTime = TimeConvertUtil.str2dateTime(bo.getPlanstarttime());
-        Timestamp endTime = TimeConvertUtil.str2dateTime(bo.getPlanendtime());
-
+        /*Timestamp startTime = TimeConvertUtil.str2dateTime(bo.getPlanstarttime());
+        Timestamp endTime = TimeConvertUtil.str2dateTime(bo.getPlanendtime());*/
+        Date startTime = null;
+        Date endTime = null;
+        try {
+            startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstarttime());
+            endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanendtime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         Taskinfo taskinfo = new Taskinfo();
         taskinfo.setEarthUuid(bo.getGroundid());
         taskinfo.setSatelliteUuid(bo.getSatelliteid());

@@ -56,7 +56,7 @@
         and 任务开始时间 >= #{planstarttime}
       </if>
       <if test="planstoptime != null and planstoptime != ''">
-        and #{planstoptime} >= 任务开始时间
+        and 任务开始时间 &lt;= #{planstoptime}
       </if>
     </where>
   </sql>
