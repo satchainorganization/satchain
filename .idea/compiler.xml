@@ -9,5 +9,8 @@
         <module name="satchain" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="satchain" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

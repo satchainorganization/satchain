@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -59,7 +60,10 @@ public class UserinfoService {
      */
     public UserChangeVO updateUserInfo(String username, String password, String createTime, Integer permission) throws ParseException {
 
-        Date time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(createTime);
+        Timestamp time = null;
+        if (createTime != null){
+            time = TimeConvertUtil.str2dateTime(createTime);
+        }
         int edit = userinfoMapper.updateByUserName(username,password,time,permission);
         UserChangeVO userChangeVO = new UserChangeVO();
         if (edit != 0){

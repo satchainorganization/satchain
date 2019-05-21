@@ -107,7 +107,7 @@
     update 用户信息表
     set 用户名 = #{username},
       密码 = #{password},
-
+      创建时间 = #{createTime},
       权限 = #{permission}
     where 用户名 = #{username}
   </update>
