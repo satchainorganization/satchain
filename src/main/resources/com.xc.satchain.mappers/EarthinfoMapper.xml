@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.satchain.dao.EarthinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.satchain.bean.model.Earthinfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="地面站编号" property="groundId" jdbcType="VARCHAR" />
+    <result column="地面站名称" property="groundName" jdbcType="VARCHAR" />
+    <result column="地面站类型" property="groundType" jdbcType="TINYINT" />
+    <result column="地面站遥测频率" property="groundTelemetryFre" jdbcType="VARCHAR" />
+    <result column="地面站遥测增益" property="groundTelemetryGain" jdbcType="VARCHAR" />
+    <result column="地面站遥控频率" property="groundTelecontrolFre" jdbcType="VARCHAR" />
+    <result column="地面站遥控ERP值" property="groundTelecontrolErp" jdbcType="VARCHAR" />
+    <result column="数据下行频率" property="dataDownFre" jdbcType="VARCHAR" />
+    <result column="数据下行增益" property="dataDownGain" jdbcType="VARCHAR" />
+    <result column="数据上行频率" property="dataUpFre" jdbcType="VARCHAR" />
+    <result column="数据上行ERP值" property="dataUpErp" jdbcType="VARCHAR" />
+    <result column="经度" property="lon" jdbcType="DECIMAL" />
+    <result column="纬度" property="lat" jdbcType="DECIMAL" />
+    <result column="IP地址" property="ip" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, 地面站编号, 地面站名称, 地面站类型, 地面站遥测频率, 地面站遥测增益,
+    地面站遥控频率, 地面站遥控ERP值, 数据下行频率, 数据下行增益,
+    数据上行频率, 数据上行ERP值, 经度, 纬度, IP地址
+  </sql>
+
+  <select id="queryEarthInfoByGroundId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from 地面站信息表
+    <where>
+      <if test="groundId != null" >
+        and 地面站编号 = #{groundId}
+      </if>
+      <if test="groundName != null" >
+        and 地面站名称 = #{groundName}
+      </if>
+    </where>
+  </select>
+  <delete id="deleteByGroundId" >
+    delete from 地面站信息表
+    where 地面站编号 = #{groundId}
+  </delete>
+
+  <insert id="insert" parameterType="com.satchain.bean.model.Earthinfo" >
+    insert into 地面站信息表 (id, 地面站编号, 地面站名称,
+      地面站类型, 地面站遥测频率, 地面站遥测增益,
+      地面站遥控频率, 地面站遥控ERP值,
+      数据下行频率, 数据下行增益,
+      数据上行频率, 数据上行ERP值, 经度,
+      纬度, IP地址)
+    values (#{id}, #{earthUuid}, #{earthName},
+      #{earthType}, #{earthTelemetryFrequency}, #{earthTelemetryGain},
+      #{earthTelecontrolFrequency}, #{earthTelecontrolErp},
+      #{dataDownlinkFrequency}, #{dataDownlinkGain},
+      #{dataUplinkFrequency}, #{dataUplinkErp}, #{longitude},
+      #{latitude}, #{ip})
+  </insert>
+  <insert id="insertSelective" parameterType="com.satchain.bean.model.Earthinfo" >
+    insert into 地面站信息表
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="earthUuid != null" >
+        地面站编号,
+      </if>
+      <if test="earthName != null" >
+        地面站名称,
+      </if>
+      <if test="earthType != null" >
+        地面站类型,
+      </if>
+      <if test="earthTelemetryFrequency != null" >
+        地面站遥测频率,
+      </if>
+      <if test="earthTelemetryGain != null" >
+        地面站遥测增益,
+      </if>
+      <if test="earthTelecontrolFrequency != null" >
+        地面站遥控频率,
+      </if>
+      <if test="earthTelecontrolErp != null" >
+        地面站遥控ERP值,
+      </if>
+      <if test="dataDownlinkFrequency != null" >
+        数据下行频率,
+      </if>
+      <if test="dataDownlinkGain != null" >
+        数据下行增益,
+      </if>
+      <if test="dataUplinkFrequency != null" >
+        数据上行频率,
+      </if>
+      <if test="dataUplinkErp != null" >
+        数据上行ERP值,
+      </if>
+      <if test="longitude != null" >
+        经度,
+      </if>
+      <if test="latitude != null" >
+        纬度,
+      </if>
+      <if test="ip != null" >
+        IP地址,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="earthUuid != null" >
+        #{earthUuid},
+      </if>
+      <if test="earthName != null" >
+        #{earthName},
+      </if>
+      <if test="earthType != null" >
+        #{earthType},
+      </if>
+      <if test="earthTelemetryFrequency != null" >
+        #{earthTelemetryFrequency},
+      </if>
+      <if test="earthTelemetryGain != null" >
+        #{earthTelemetryGain},
+      </if>
+      <if test="earthTelecontrolFrequency != null" >
+        #{earthTelecontrolFrequency},
+      </if>
+      <if test="earthTelecontrolErp != null" >
+        #{earthTelecontrolErp},
+      </if>
+      <if test="dataDownlinkFrequency != null" >
+        #{dataDownlinkFrequency},
+      </if>
+      <if test="dataDownlinkGain != null" >
+        #{dataDownlinkGain},
+      </if>
+      <if test="dataUplinkFrequency != null" >
+        #{dataUplinkFrequency},
+      </if>
+      <if test="dataUplinkErp != null" >
+        #{dataUplinkErp},
+      </if>
+      <if test="longitude != null" >
+        #{longitude},
+      </if>
+      <if test="latitude != null" >
+        #{latitude},
+      </if>
+      <if test="ip != null" >
+        #{ip},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.satchain.bean.model.Earthinfo" >
+    update 地面站信息表
+    <set >
+      <if test="earthUuid != null" >
+        地面站编号 = #{earthUuid},
+      </if>
+      <if test="earthName != null" >
+        地面站名称 = #{earthName},
+      </if>
+      <if test="earthType != null" >
+        地面站类型 = #{earthType},
+      </if>
+      <if test="earthTelemetryFrequency != null" >
+        地面站遥测频率 = #{earthTelemetryFrequency},
+      </if>
+      <if test="earthTelemetryGain != null" >
+        地面站遥测增益 = #{earthTelemetryGain},
+      </if>
+      <if test="earthTelecontrolFrequency != null" >
+        地面站遥控频率 = #{earthTelecontrolFrequency},
+      </if>
+      <if test="earthTelecontrolErp != null" >
+        地面站遥控ERP值 = #{earthTelecontrolErp},
+      </if>
+      <if test="dataDownlinkFrequency != null" >
+        数据下行频率 = #{dataDownlinkFrequency},
+      </if>
+      <if test="dataDownlinkGain != null" >
+        数据下行增益 = #{dataDownlinkGain},
+      </if>
+      <if test="dataUplinkFrequency != null" >
+        数据上行频率 = #{dataUplinkFrequency},
+      </if>
+      <if test="dataUplinkErp != null" >
+        数据上行ERP值 = #{dataUplinkErp},
+      </if>
+      <if test="longitude != null" >
+        经度 = #{longitude},
+      </if>
+      <if test="latitude != null" >
+        纬度 = #{latitude},
+      </if>
+      <if test="ip != null" >
+        IP地址 = #{ip},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByGroundId" parameterType="com.satchain.bean.model.Earthinfo" >
+    update 地面站信息表
+    set 地面站编号 = #{earthUuid},
+      地面站名称 = #{earthName},
+      地面站类型 = #{earthType},
+      地面站遥测频率 = #{earthTelemetryFrequency},
+      地面站遥测增益 = #{earthTelemetryGain},
+      地面站遥控频率 = #{earthTelecontrolFrequency},
+      地面站遥控ERP值 = #{earthTelecontrolErp},
+      数据下行频率 = #{dataDownlinkFrequency},
+      数据下行增益 = #{dataDownlinkGain},
+      数据上行频率 = #{dataUplinkFrequency},
+      数据上行ERP值 = #{dataUplinkErp},
+      经度 = #{longitude},
+      纬度 = #{latitude},
+      IP地址 = #{ip}
+    where 地面站编号 = #{earthUuid}
+  </update>
+</mapper>

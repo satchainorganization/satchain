@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.satchain.dao.LoginfoMapper" >
+  <resultMap id="BaseResultMap" type="com.satchain.bean.model.Loginfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="时间" property="time" jdbcType="TIMESTAMP" />
+    <result column="对象" property="objects" jdbcType="VARCHAR" />
+    <result column="事件类型" property="eventType" jdbcType="TINYINT" />
+    <result column="参数" property="parameter" jdbcType="VARCHAR" />
+    <result column="备注" property="comments" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, 时间, 对象, 事件类型, 参数, 备注
+  </sql>
+
+  <select id="queryLogByTime" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from 系统日志表
+    <where>
+      <if test="startTime != null" >
+        and 时间 >= #{startTime},
+      </if>
+      <if test="stopTime != null" >
+        and 时间 &lt;= #{stopTime},
+      </if>
+    </where>
+    order by 时间
+  </select>
+
+  <delete id="deleteByTime" >
+    delete from 系统日志表
+    <where>
+      <if test="startTime != null" >
+        and 时间 >= #{startTime}
+      </if>
+      <if test="stopTime != null" >
+        and 时间 &lt;= #{stopTime}
+      </if>
+    </where>
+  </delete>
+
+  <insert id="insert" parameterType="com.satchain.bean.model.Loginfo" >
+    insert into 系统日志表 (id, 时间, 对象,
+      事件类型, 参数, 备注
+      )
+    values (#{id}, #{time}, #{objects},
+      #{eventType}, #{parameter}, #{comments}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.satchain.bean.model.Loginfo" >
+    insert into 系统日志表
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="time != null" >
+        时间,
+      </if>
+      <if test="objects != null" >
+        对象,
+      </if>
+      <if test="eventType != null" >
+        事件类型,
+      </if>
+      <if test="parameter != null" >
+        参数,
+      </if>
+      <if test="comments != null" >
+        备注,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="time != null" >
+        #{time},
+      </if>
+      <if test="objects != null" >
+        #{objects},
+      </if>
+      <if test="eventType != null" >
+        #{eventType},
+      </if>
+      <if test="parameter != null" >
+        #{parameter},
+      </if>
+      <if test="comments != null" >
+        #{comments},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateByExample" parameterType="map" >
+    update 系统日志表
+    set id = #{record.id},
+      时间 = #{record.time},
+      对象 = #{record.objects},
+      事件类型 = #{record.eventType},
+      参数 = #{record.parameter},
+      备注 = #{record.comments}
+    <!--<if test="_parameter != null" >-->
+      <!--<include refid="Update_By_Example_Where_Clause" />-->
+    <!--</if>-->
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.satchain.bean.model.Loginfo" >
+    update 系统日志表
+    <set >
+      <if test="time != null" >
+        时间 = #{time},
+      </if>
+      <if test="objects != null" >
+        对象 = #{objects},
+      </if>
+      <if test="eventType != null" >
+        事件类型 = #{eventType},
+      </if>
+      <if test="parameter != null" >
+        参数 = #{parameter},
+      </if>
+      <if test="comments != null" >
+        备注 = #{comments},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.satchain.bean.model.Loginfo" >
+    update 系统日志表
+    set 时间 = #{time},
+      对象 = #{objects},
+      事件类型 = #{eventType},
+      参数 = #{parameter},
+      备注 = #{comments}
+    where id = #{id}
+  </update>
+</mapper>

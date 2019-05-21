@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.satchain.dao.SatelliteinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.satchain.bean.model.Satelliteinfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="卫星编号" property="satelliteUuid" jdbcType="VARCHAR" />
+    <result column="NASA编号" property="nasaUuid" jdbcType="VARCHAR" />
+    <result column="卫星名称" property="satelliteName" jdbcType="VARCHAR" />
+    <result column="所属星座" property="constellationType" jdbcType="VARCHAR" />
+    <result column="卫星类型" property="satelliteType" jdbcType="TINYINT" />
+    <result column="遥测频率" property="telemetryFrequency" jdbcType="VARCHAR" />
+    <result column="遥测ERP值" property="telemetryErp" jdbcType="VARCHAR" />
+    <result column="遥控频率" property="telecontrolFrequency" jdbcType="VARCHAR" />
+    <result column="遥控接收增益" property="telecontrolReceivingGain" jdbcType="VARCHAR" />
+    <result column="数据下行频率" property="dataDownlinkFrequency" jdbcType="VARCHAR" />
+    <result column="数据下行ERP值" property="dataDownlinkErp" jdbcType="VARCHAR" />
+    <result column="数据上行频率" property="dataUplinkFrequency" jdbcType="VARCHAR" />
+    <result column="数据上行接收增益" property="dataUplinkReceivingGain" jdbcType="VARCHAR" />
+    <result column="业务下行频率" property="businessDownlinkFrequency" jdbcType="VARCHAR" />
+    <result column="业务下行ERP值" property="businessDownlinkErp" jdbcType="VARCHAR" />
+    <result column="业务上行频率" property="businessUplinkFrequency" jdbcType="VARCHAR" />
+    <result column="业务上行接收增益" property="businessUplinkReceivingGain" jdbcType="VARCHAR" />
+    <result column="倾角" property="dipAngle" jdbcType="DECIMAL" />
+    <result column="升交点赤径" property="equatorialRadius" jdbcType="DECIMAL" />
+    <result column="偏心率" property="eccentricity" jdbcType="FLOAT" />
+    <result column="半长轴" property="majorSemiaxis" jdbcType="FLOAT" />
+    <result column="近地点角距" property="perigeeAngularDistance" jdbcType="DECIMAL" />
+    <result column="近地点时刻" property="perigeeMoment" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, 卫星编号, NASA编号, 卫星名称, 所属星座, 卫星类型,
+    遥测频率, 遥测ERP值, 遥控频率, 遥控接收增益,
+    数据下行频率, 数据下行ERP值, 数据上行频率, 数据上行接收增益,
+    业务下行接收增益, 业务下行ERP值, 业务上行频率,
+    业务上行接收增益, 倾角, 升交点赤径, 偏心率, 半长轴,
+    近地点角距, 近地点时刻
+  </sql>
+  <sql id="id_name_where">
+    <where>
+      <if test="satelliteUuid != null" >
+        and 卫星编号 = #{satelliteId}
+      </if>
+      <if test="satelliteName != null" >
+        and 卫星名称 = #{satelliteName}
+      </if>
+    </where>
+  </sql>
+
+  <select id="selectBySatelliteId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from 卫星信息表
+    <include refid="id_name_where"/>
+  </select>
+
+  <select id="queryBySateOrConstID" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from 卫星信息表
+    <where>
+      <if test="satelliteUuid != null and satelliteUuid !=''" >
+        and 卫星编号 = #{satelliteUuid}
+      </if>
+      <if test="constellationId != null and constellationId != ''" >
+        and 所属星座 = #{constellationId}
+      </if>
+    </where>
+  </select>
+
+  <delete id="deleteByIdName" >
+    delete from 卫星信息表
+    <include refid="id_name_where"/>
+  </delete>
+
+  <insert id="insert" parameterType="com.satchain.bean.model.Satelliteinfo" >
+    insert into 卫星信息表 (id, 卫星编号, NASA编号,
+      卫星名称, 所属星座, 卫星类型,
+      遥测频率, 遥测ERP值, 遥控频率,
+      遥控接收增益, 数据下行频率,
+      数据下行ERP值, 数据上行频率, 数据上行接收增益,
+      业务下行接收增益, 业务下行ERP值,
+      业务上行频率, 业务上行接收增益,
+      倾角, 升交点赤径, 偏心率,
+      半长轴, 近地点角距, 近地点时刻
+      )
+    values (#{id}, #{satelliteUuid}, #{nasaUuid},
+      #{satelliteName}, #{constellationType}, #{satelliteType},
+      #{telemetryFrequency}, #{telemetryErp}, #{telecontrolFrequency},
+      #{telecontrolReceivingGain}, #{dataDownlinkFrequency},
+      #{dataDownlinkErp}, #{dataUplinkFrequency}, #{dataUplinkReceivingGain},
+      #{businessDownlinkReceivingGain}, #{businessDownlinkErp},
+      #{businessUplinkFrequency}, #{businessUplinkReceivingGain},
+      #{dipAngle}, #{equatorialRadius}, #{eccentricity},
+      #{majorSemiaxis}, #{perigeeAngularDistance}, #{perigeeMoment}
+      )
+  </insert>
+
+  <update id="updateByIdSelective" parameterType="com.satchain.bean.model.Satelliteinfo" >
+    update 卫星信息表
+    <set >
+      <if test="satelliteUuid != null" >
+        卫星编号 = #{satelliteUuid},
+      </if>
+      <if test="nasaUuid != null" >
+        NASA编号 = #{nasaUuid},
+      </if>
+      <if test="satelliteName != null" >
+        卫星名称 = #{satelliteName},
+      </if>
+      <if test="constellationType != null" >
+        所属星座 = #{constellationType},
+      </if>
+      <if test="satelliteType != null" >
+        卫星类型 = #{satelliteType},
+      </if>
+      <if test="telemetryFrequency != null" >
+        遥测频率 = #{telemetryFrequency},
+      </if>
+      <if test="telemetryErp != null" >
+        遥测ERP值 = #{telemetryErp},
+      </if>
+      <if test="telecontrolFrequency != null" >
+        遥控频率 = #{telecontrolFrequency},
+      </if>
+      <if test="telecontrolReceivingGain != null" >
+        遥控接收增益 = #{telecontrolReceivingGain},
+      </if>
+      <if test="dataDownlinkFrequency != null" >
+        数据下行频率 = #{dataDownlinkFrequency},
+      </if>
+      <if test="dataDownlinkErp != null" >
+        数据下行ERP值 = #{dataDownlinkErp},
+      </if>
+      <if test="dataUplinkFrequency != null" >
+        数据上行频率 = #{dataUplinkFrequency},
+      </if>
+      <if test="dataUplinkReceivingGain != null" >
+        数据上行接收增益 = #{dataUplinkReceivingGain},
+      </if>
+      <if test="businessDownlinkReceivingGain != null" >
+        业务下行接收增益 = #{businessDownlinkReceivingGain},
+      </if>
+      <if test="businessDownlinkErp != null" >
+        业务下行ERP值 = #{businessDownlinkErp},
+      </if>
+      <if test="businessUplinkFrequency != null" >
+        业务上行频率 = #{businessUplinkFrequency},
+      </if>
+      <if test="businessUplinkReceivingGain != null" >
+        业务上行接收增益 = #{businessUplinkReceivingGain},
+      </if>
+      <if test="dipAngle != null" >
+        倾角 = #{dipAngle},
+      </if>
+      <if test="equatorialRadius != null" >
+        升交点赤径 = #{equatorialRadius},
+      </if>
+      <if test="eccentricity != null" >
+        偏心率 = #{eccentricity},
+      </if>
+      <if test="majorSemiaxis != null" >
+        半长轴 = #{majorSemiaxis},
+      </if>
+      <if test="perigeeAngularDistance != null" >
+        近地点角距 = #{perigeeAngularDistance},
+      </if>
+      <if test="perigeeMoment != null" >
+        近地点时刻 = #{perigeeMoment},
+      </if>
+    </set>
+    where 卫星编号 = #{satelliteUuid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.satchain.bean.model.Satelliteinfo" >
+    update 卫星信息表
+    set 卫星编号 = #{satelliteUuid},
+      NASA编号 = #{nasaUuid},
+      卫星名称 = #{satelliteName},
+      所属星座 = #{constellationType},
+      卫星类型 = #{satelliteType},
+      遥测频率 = #{telemetryFrequency},
+      遥测ERP值 = #{telemetryErp},
+      遥控频率 = #{telecontrolFrequency},
+      遥控接收增益 = #{telecontrolReceivingGain},
+      数据下行频率 = #{dataDownlinkFrequency},
+      数据下行ERP值 = #{dataDownlinkErp},
+      数据上行频率 = #{dataUplinkFrequency},
+      数据上行接收增益 = #{dataUplinkReceivingGain},
+      业务下行接收增益 = #{businessDownlinkReceivingGain},
+      业务下行ERP值 = #{businessDownlinkErp},
+      业务上行频率 = #{businessUplinkFrequency},
+      业务上行接收增益 = #{businessUplinkReceivingGain},
+      倾角 = #{dipAngle},
+      升交点赤径 = #{equatorialRadius},
+      偏心率 = #{eccentricity},
+      半长轴 = #{majorSemiaxis},
+      近地点角距 = #{perigeeAngularDistance},
+      近地点时刻 = #{perigeeMoment}
+    where id = #{id}
+  </update>
+</mapper>
