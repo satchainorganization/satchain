@@ -40,7 +40,7 @@ public class LoginController {
 
 
         String pwd = loginService.getPassword(username);
-        if(password != null && password.equals(pwd)) {
+        if(!password.equals("") && password.equals(pwd)) {
 
             Map<String,Object> map = new HashMap<String, Object>();
             HttpSession session = request.getSession();
