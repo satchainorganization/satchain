@@ -8,7 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="544c8578-ec4d-4ff9-98ed-39aa184c2c59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mysql - 副本.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mysql - 副本.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysql - 副本.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mysql - 副本.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mysql - 副本.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
@@ -71,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SatelliteinfoMapper.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SatelliteinfoMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <state relative-caret-position="97">
+              <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -142,6 +142,9 @@
       <find>queryBySateOrConstID</find>
       <find>insertTeleContent</find>
       <find>taskUuid</find>
+      <find>任务分配</find>
+      <find>业务下行频率</find>
+      <find>业务下行接收增益</find>
     </findStrings>
     <replaceStrings>
       <replace>String</replace>
@@ -169,8 +172,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/service/TeleContentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/dao/TaskinfoMapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mysql - 副本.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml" />
       </list>
     </option>
   </component>
@@ -721,7 +724,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17826000" />
+    <option name="totallyTimeSpent" value="18404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -746,10 +749,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.4097035" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.24096386" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.24096386" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32874355" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.31153184" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2322239" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31153184" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2322239" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -1153,13 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TeleContentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -1184,6 +1180,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
         </state>
       </provider>
     </entry>
