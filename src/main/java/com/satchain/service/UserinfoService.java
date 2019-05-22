@@ -5,13 +5,14 @@ import com.satchain.bean.vo.UserChangeVO;
 import com.satchain.bean.vo.UserInfoVO;
 import com.satchain.commons.utils.TimeConvertUtil;
 import com.satchain.dao.UserinfoMapper;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,10 +23,17 @@ import java.util.List;
 @Service
 public class UserinfoService {
 
+    private static final Log log = LogFactory.getLog(UserinfoService.class);
     @Autowired
     private UserinfoMapper userinfoMapper;
 
-    public Integer insertUser(String username, String password, Integer permission) {
+    public Integer insertUser(String username, String password, Integer permission) throws Exception {
+
+        List<Userinfo> userinfos = userinfoMapper.queryUserInfoByName(username);
+        if (userinfos.size()>0){
+            log.warn("用户已存在！");
+            throw new Exception("用户已存在！");
+        }
         return userinfoMapper.insert(username,password,permission,new Date());
     }
 

@@ -25,7 +25,7 @@ public class UserinfoController {
      */
     @RequestMapping(value = "/addUsers", method = RequestMethod.POST)
     public Result addusers(@RequestParam("username") String username, @RequestParam("password") String password,
-                           @RequestParam("permission") Integer permission){
+                           @RequestParam("permission") Integer permission) throws Exception {
 
         //todo 管理员权限
         Assert.notNull(username,"参数错误！");

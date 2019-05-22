@@ -1,7 +1,7 @@
 package com.satchain.commons.constants;
 
 /**
- * @author 董少飞
+ * @author
  * // TODO: 2019/5/19 dsf
  * @date 2019/5/19
  */
