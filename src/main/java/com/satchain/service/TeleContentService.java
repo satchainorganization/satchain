@@ -39,11 +39,12 @@ public class TeleContentService {
         taskinfo.setSatelliteUuid(bo.getSatelliteid());
         taskinfo.setTaskType(bo.getTasktype());
 
-        Timestamp startTime = TimeConvertUtil.str2dateTime(bo.getPlanstarttime());
-        Timestamp endTime = TimeConvertUtil.str2dateTime(bo.getPlanendtime());
+        Date startTime = bo.getPlanstarttime();
+        Date endTime = bo.getPlanendtime();
         taskinfo.setPlanStartTime(startTime);
         taskinfo.setPlanEndTime(endTime);
-        int taskid = taskinfoMapper.insertReturn(taskinfo);
+        taskinfoMapper.insertReturn(taskinfo);
+        int taskid = taskinfo.getTaskUuid();
         if (taskid == 0){
             throw new Exception("插入到任务分配表失败！");
         }

@@ -1,7 +1,5 @@
 package com.satchain.bean.model;
 
-import java.sql.Blob;
-
 /**
  * 遥控内容表
  */
@@ -10,7 +8,7 @@ public class Contentinfo {
 
     private Integer taskUuid;//任务编号
 
-    private Blob taskContent;//任务内容
+    private String taskContent;//任务内容
 
     public Long getId() {
         return id;
@@ -28,11 +26,11 @@ public class Contentinfo {
         this.taskUuid = taskUuid;
     }
 
-    public Blob getTaskContent() {
+    public String getTaskContent() {
         return taskContent;
     }
 
-    public void setTaskContent(Blob taskContent) {
+    public void setTaskContent(String taskContent) {
         this.taskContent = taskContent;
     }
 }

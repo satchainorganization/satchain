@@ -1,13 +1,14 @@
 package com.satchain.bean.vo;
 
-import java.sql.Blob;
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class ContentInfoVO {
     private Integer taskID;//任务编号
     private String constellationid;//星座编号
     private String satelliteid;//卫星编号
     private String groundid;//地面站编号
-    private Blob taskContent;//任务内容
+    private String taskContent;//任务内容
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private String taskTime;//任务执行时间
 
     public Integer getTaskID() {
@@ -42,11 +43,11 @@ public class ContentInfoVO {
         this.groundid = groundid;
     }
 
-    public Blob getTaskContent() {
+    public String getTaskContent() {
         return taskContent;
     }
 
-    public void setTaskContent(Blob taskContent) {
+    public void setTaskContent(String taskContent) {
         this.taskContent = taskContent;
     }
 

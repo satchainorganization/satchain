@@ -9,8 +9,6 @@ import java.util.Date;
  * 任务分配表
  */
 public class Taskinfo {
-    private Long id;
-
     private Integer taskUuid;//任务编号 TODO 有改动，long改為int
 
     private String earthUuid;//地面站编号
@@ -19,19 +17,19 @@ public class Taskinfo {
 
     private Integer taskType;//任务类型 TODO 有改动，long改為int
 
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")   //格式化前台日期参数注解
     private Date taskReleaseTime;//任务发布时间
 
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date planStartTime;//计划开始时间
 
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date planEndTime;//计划截止时间
 
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date taskStartTime;//任务开始时间
 
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date taskEndTime;//任务结束时间
 
     private Integer distributionFlag;//分发标志 TODO byte 改为int
@@ -39,14 +37,6 @@ public class Taskinfo {
     private Boolean taskFlag;//任务标志
 
     private Integer ack;//任务执行情况
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Integer getTaskUuid() {
         return taskUuid;

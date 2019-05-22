@@ -1,14 +1,18 @@
 package com.satchain.bean.bo;
 
-import java.sql.Blob;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 public class TeleControlContentBO {
     private String groundid;//地面站编号
     private String satelliteid;//卫星编号
     private Integer tasktype;//任务类型
-    private String planstarttime;//任务开始时间
-    private String planendtime;//任务结束时间
-    private Blob taskcontent;//任务内容
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date planstarttime;//任务开始时间
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date planendtime;//任务结束时间
+    private String taskcontent;//任务内容
 
     public String getGroundid() {
         return groundid;
@@ -34,27 +38,27 @@ public class TeleControlContentBO {
         this.tasktype = tasktype;
     }
 
-    public String getPlanstarttime() {
+    public Date getPlanstarttime() {
         return planstarttime;
     }
 
-    public void setPlanstarttime(String planstarttime) {
+    public void setPlanstarttime(Date planstarttime) {
         this.planstarttime = planstarttime;
     }
 
-    public String getPlanendtime() {
+    public Date getPlanendtime() {
         return planendtime;
     }
 
-    public void setPlanendtime(String planendtime) {
+    public void setPlanendtime(Date planendtime) {
         this.planendtime = planendtime;
     }
 
-    public Blob getTaskcontent() {
+    public String getTaskcontent() {
         return taskcontent;
     }
 
-    public void setTaskcontent(Blob taskcontent) {
+    public void setTaskcontent(String taskcontent) {
         this.taskcontent = taskcontent;
     }
 }

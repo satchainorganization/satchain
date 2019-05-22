@@ -27,9 +27,9 @@
     where id = #{id}
   </delete>
   <insert id="insert" parameterType="com.satchain.bean.model.Contentinfo" >
-    insert into 遥控内容表 (id, 任务编号, 任务内容
+    insert into 遥控内容表 (任务编号, 任务内容
       )
-    values (#{id}, #{taskUuid}, #{taskContent, typeHandler = org.apache.ibatis.type.BlobTypeHandler}
+    values (#{taskUuid}, #{taskContent,jdbcType=BLOB}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.satchain.bean.model.Contentinfo" >
