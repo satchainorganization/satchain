@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 
+/**
+ * bingo
+ */
 @RestController
 public class DeviceRelationController {
     @Autowired

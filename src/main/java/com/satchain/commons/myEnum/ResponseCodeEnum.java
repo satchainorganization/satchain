@@ -7,7 +7,8 @@ public enum ResponseCodeEnum {
     SUCCESS(1,"成功"),
     ERROR(0,"失败"),
     // TODO: 2019/5/19 dsf
-    PERMISSION_DENY(0, "无权限")
+    PERMISSION_DENY(0, "无权限"),
+    NO_LOGIN(0, "用户未登录")
     ;
 
     private int code;

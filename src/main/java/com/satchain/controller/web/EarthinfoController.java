@@ -6,11 +6,11 @@ import com.satchain.commons.result.Result;
 import com.satchain.service.EarthinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+/**
+ * bingo
+ */
 @RestController
 @RequestMapping("/")
 public class EarthinfoController {
@@ -28,7 +28,7 @@ public class EarthinfoController {
      * 24新增地面站
      */
     @RequestMapping(value = "/GroundStation", method = RequestMethod.POST)
-    public Result GroundStation(Earthinfo bo) throws Exception {
+    public Result groundStation(Earthinfo bo) throws Exception {
         Assert.notNull(bo,"参数错误！");
         Assert.notNull(bo.getGroundId(),"参数错误！");
         Assert.notNull(bo.getGroundName(),"参数错误！");
@@ -54,8 +54,9 @@ public class EarthinfoController {
     /**
      * 25 删除地面站
      */
+    // TODO: 2019/5/23 put、delete 参数无法通过请求体传输
     @RequestMapping(value = "/deleteGroundStation", method = RequestMethod.DELETE)
-    public Result deleteGroundStation(@RequestParam("groundId") String groundId){
+    public Result deleteGroundStation(@RequestBody@RequestParam("groundId") String groundId){
         Assert.notNull(groundId,"地面站id不能为空！");
         int n = earthinfoService.deleteEarthInfo(groundId);
         if (n == 0){
@@ -66,8 +67,9 @@ public class EarthinfoController {
     /**
      * 26 更改地面站信息
      */
+    // TODO: 2019/5/23 put、delete 参数无法通过请求体传输
     @RequestMapping(value = "/updateGroundStation", method = RequestMethod.PUT)
-    public Result updateGroundStation(Earthinfo bo) throws Exception {
+    public Result updateGroundStation(@RequestBody Earthinfo bo) throws Exception {
         Assert.notNull(bo,"参数错误！");
         Assert.notNull(bo.getGroundId(),"参数错误！");
         Assert.notNull(bo.getGroundName(),"参数错误！");

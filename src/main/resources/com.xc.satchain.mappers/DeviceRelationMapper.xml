@@ -3,47 +3,47 @@
 <mapper namespace="com.satchain.dao.DeviceRelationMapper" >
   <resultMap id="BaseResultMap" type="com.satchain.bean.model.DeviceRelation" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="device_name" property="deviceName" jdbcType="VARCHAR" />
-    <result column="device_farther_name" property="deviceFartherName" jdbcType="VARCHAR" />
-    <result column="moon_num" property="moonNum" jdbcType="VARCHAR" />
+    <result column="设备名" property="deviceName" jdbcType="VARCHAR" />
+    <result column="父设备名" property="deviceFartherName" jdbcType="VARCHAR" />
+    <result column="卫星编号" property="moonNum" jdbcType="VARCHAR" />
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, device_name, device_farther_name, moon_num
+    id, 设备名, 父设备名, 卫星编号
   </sql>
 
-  <select id="selectBySatelliteId" resultMap="BaseResultMap">
+  <select id="selectBySatelliteUuid" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from device_relation
-    where satelliteId = #{satelliteId}
+    from 设备关系表
+    where 卫星编号 = #{satelliteUuid}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from device_relation
+    delete from 设备关系表
     where id = #{id}
   </delete>
 
   <insert id="insert" parameterType="com.satchain.bean.model.DeviceRelation" >
-    insert into device_relation (id, device_name, device_farther_name,
-      moon_num)
+    insert into 设备关系表 (id, 设备名, 父设备名,
+                       卫星编号)
     values (#{id}, #{deviceName}, #{deviceFartherName},
       #{moonNum})
   </insert>
   <insert id="insertSelective" parameterType="com.satchain.bean.model.DeviceRelation" >
-    insert into device_relation
+    insert into 设备关系表
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
       <if test="deviceName != null" >
-        device_name,
+        设备名,
       </if>
       <if test="deviceFartherName != null" >
-        device_farther_name,
+        父设备名,
       </if>
       <if test="moonNum != null" >
-        moon_num,
+        卫星编号,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -63,25 +63,25 @@
   </insert>
 
   <update id="updateByPrimaryKeySelective" parameterType="com.satchain.bean.model.DeviceRelation" >
-    update device_relation
+    update 设备关系表
     <set >
       <if test="deviceName != null" >
-        device_name = #{deviceName},
+        设备名 = #{deviceName},
       </if>
       <if test="deviceFartherName != null" >
-        device_farther_name = #{deviceFartherName},
+        父设备名 = #{deviceFartherName},
       </if>
       <if test="moonNum != null" >
-        moon_num = #{moonNum},
+        卫星编号 = #{moonNum},
       </if>
     </set>
     where id = #{id}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.satchain.bean.model.DeviceRelation" >
-    update device_relation
-    set device_name = #{deviceName},
-      device_farther_name = #{deviceFartherName},
-      moon_num = #{moonNum}
+    update 设备关系表
+    set 设备名 = #{deviceName},
+      父设备名 = #{deviceFartherName},
+      卫星编号 = #{moonNum}
     where id = #{id}
   </update>
 </mapper>

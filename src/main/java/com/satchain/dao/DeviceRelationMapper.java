@@ -13,7 +13,7 @@ public interface DeviceRelationMapper {
 
     int insertSelective(DeviceRelation record);
 
-    List<DeviceRelation> selectBySatelliteId(@Param("satelliteUuid") String satelliteUuid);
+    List<DeviceRelation> selectBySatelliteUuid(@Param("satelliteUuid") String satelliteUuid);
 
     int updateByPrimaryKeySelective(DeviceRelation record);
 

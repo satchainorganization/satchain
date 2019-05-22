@@ -12,6 +12,9 @@ public class Loginfo {
 
     private String objects;//对象
 
+    /**
+     * 事件类型 1：登录
+     */
     private Byte eventType;//事件类型
 
     private String parameter;//参数

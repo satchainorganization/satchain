@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * 日志内容表：查删
+ * // TODO: 2019/5/23 mapper乱码
  */
 @RestController
 @RequestMapping("/")

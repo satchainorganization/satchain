@@ -23,9 +23,9 @@
   <sql id="任务分配表_where">
     <where>
 
-      <if test="satelliteid != null and satelliteid != ''">
+      <if test="satelliteUuid != null and satelliteUuid != ''">
         and 卫星编号 in
-        <foreach item="item" collection="satelliteid" separator="," open="(" close=")" index="">
+        <foreach item="item" collection="satelliteUuid" separator="," open="(" close=")" index="">
           #{item}
         </foreach>
       </if>
@@ -48,8 +48,8 @@
       <if test="constellationid != null and constellationid != ''">
         and
       </if>
-      <if test="satelliteid != null and satelliteid != ''">
-        and 卫星编号=#{satelliteid}
+      <if test="satelliteUuid != null and satelliteUuid != ''">
+        and 卫星编号=#{satelliteUuid}
       </if>
       <if test="planstarttime != null and planstarttime != ''">
         and 任务开始时间 >= #{planstarttime}
@@ -72,11 +72,11 @@
     from 任务分配表
     where 任务编号 = #{taskid}
   </select>
-  <select id="queryBySatelliteId" resultMap="BaseResultMap">
+  <select id="queryBysatelliteUuid" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from 任务分配表
-    where 卫星编号 = #{satelliteid}
+    where 卫星编号 = #{satelliteUuid}
   </select>
 
   <select id="queryTaskInfoByidAndTime" resultMap="BaseResultMap">

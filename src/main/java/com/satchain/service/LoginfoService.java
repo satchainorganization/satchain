@@ -43,4 +43,9 @@ public class LoginfoService {
         Timestamp stopTime = TimeConvertUtil.str2dateTime(stoptime);
         return loginfoMapper.deleteByTime(startTime,stopTime);
     }
+
+    public int insertLogInfo(Loginfo loginfo) {
+
+        return loginfoMapper.insert(loginfo);
+    }
 }

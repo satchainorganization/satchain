@@ -17,6 +17,7 @@ import java.util.Map;
 
 /**
  * 星座信息表
+ * // TODO: 2019/5/23  mapper乱码
  */
 @RestController
 public class ConstellationinfoController {

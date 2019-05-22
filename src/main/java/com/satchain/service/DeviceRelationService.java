@@ -25,7 +25,7 @@ public class DeviceRelationService {
 
         List<Map<String, String>> list = new ArrayList<>();
 
-        List<DeviceRelation> deviceRelations =  deviceRelationMapper.selectBySatelliteId(satelliteId);
+        List<DeviceRelation> deviceRelations =  deviceRelationMapper.selectBySatelliteUuid(satelliteId);
         for (DeviceRelation dev : deviceRelations){
             Map<String, String> map = new HashMap<String, String>();
             map.put("deviceName",dev.getDeviceName());
