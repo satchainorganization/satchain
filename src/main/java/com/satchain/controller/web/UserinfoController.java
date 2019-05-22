@@ -52,14 +52,13 @@ public class UserinfoController {
      */
     @RequestMapping(value = "/editUsers", method = RequestMethod.POST)
     public Result editUsers(@RequestParam("username") String username, @RequestParam("password") String password,
-                            @RequestParam("createTime") String createTime,
                             @RequestParam("permission") Integer permission) throws ParseException {
 
         Assert.notNull(username,"参数错误！");
         Assert.notNull(password,"参数错误！");
         Assert.notNull(permission,"参数错误！");
 
-        UserChangeVO userChangeVO = userinfoService.updateUserInfo(username,password,createTime,permission);
+        UserChangeVO userChangeVO = userinfoService.updateUserInfo(username,password,permission);
         if (userChangeVO == null){
             return Result.failure(ResponseCodeEnum.ERROR,"修改用户失败");
         }

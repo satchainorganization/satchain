@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,13 +65,9 @@ public class UserinfoService {
      * @param password
      * @param permission
      */
-    public UserChangeVO updateUserInfo(String username, String password, String createTime, Integer permission) throws ParseException {
+    public UserChangeVO updateUserInfo(String username, String password, Integer permission) throws ParseException {
 
-        Timestamp time = null;
-        if (createTime != null){
-            time = TimeConvertUtil.str2dateTime(createTime);
-        }
-        int edit = userinfoMapper.updateByUserName(username,password,time,permission);
+        int edit = userinfoMapper.updateByUserName(username,password,permission);
         UserChangeVO userChangeVO = new UserChangeVO();
         if (edit != 0){
             userChangeVO.setUsername(username);

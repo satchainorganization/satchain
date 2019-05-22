@@ -16,7 +16,7 @@ public interface UserinfoMapper {
 
     int updateByPrimaryKeySelective(Userinfo record);
 
-    int updateByUserName(@Param("username") String username, @Param("password") String password, @Param("createTime") Date createTime, @Param("permission") Integer permission);
+    int updateByUserName(@Param("username") String username, @Param("password") String password, @Param("permission") Integer permission);
 
     int deleteByUserName(@Param("username") String username);
 }
