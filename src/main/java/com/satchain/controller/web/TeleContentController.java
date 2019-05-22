@@ -6,12 +6,14 @@ import com.satchain.commons.myEnum.ResponseCodeEnum;
 import com.satchain.commons.result.Result;
 import com.satchain.service.TeleContentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,8 +53,8 @@ public class TeleContentController {
     @RequestMapping(value = "/queryTelecontrolContent", method = RequestMethod.POST)
     public Result queryTeleContent(@RequestParam("constellationid") String constellationid,
                                    @RequestParam("satelliteid") String satelliteid,
-                                   @RequestParam("beginTime") String beginTime,
-                                   @RequestParam("endTime") String endTime) {
+                                   @RequestParam("beginTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date beginTime,
+                                   @RequestParam("endTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date endTime) {
         List<ContentInfoVO> contentinfos = teleContentService.queryContentInfo(constellationid,satelliteid,beginTime,endTime);
         return Result.success(contentinfos);
     }
