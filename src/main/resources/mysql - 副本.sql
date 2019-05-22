@@ -112,3 +112,26 @@ CREATE TABLE `监控信息表`(
 	PRIMARY KEY(`id`),
 	UNIQUE KEY `idx_monitor_uuid` (`监控器编号`)
 )ENGINE=INNODB DEFAULT CHARSET='utf8';
+
+CREATE TABLE `设备关系表`(
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`设备名` VARCHAR(32) ,
+	`父设备名` VARCHAR(32) ,
+	`卫星编号` VARCHAR(32) ,
+	PRIMARY KEY(`id`),
+	UNIQUE KEY `idx_device_name` (`设备名`)
+)ENGINE=INNODB DEFAULT CHARSET='utf8';
+
+CREATE TABLE `字段定义表`(
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`字段名` VARCHAR(32) ,
+	`数据类型` TINYINT(4) DEFAULT NULL,
+	`最小值` DOUBLE(10,2) ,
+	`最大值` DOUBLE(10,2) ,
+	`单位` VARCHAR(32) ,
+	`显示标志` TINYINT(1) ,
+	`设备名` VARCHAR(32) ,
+	`卫星编号` VARCHAR(32) ,
+	PRIMARY KEY(`id`),
+	UNIQUE KEY `idx_field_define` (`字段名`)
+)ENGINE=INNODB DEFAULT CHARSET='utf8';
