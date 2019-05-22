@@ -30,8 +30,9 @@ public class UserinfoService {
 
         List<Userinfo> userinfos = userinfoMapper.queryUserInfoByName(username);
         if (userinfos.size()>0){
-            log.warn("用户已存在！");
-            throw new Exception("用户已存在！");
+            /*log.warn("用户已存在！");
+            throw new Exception("用户已存在！");*/
+            return 0;
         }
         return userinfoMapper.insert(username,password,permission,new Date());
     }

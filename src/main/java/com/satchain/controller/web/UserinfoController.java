@@ -34,7 +34,7 @@ public class UserinfoController {
 
         int n = userinfoService.insertUser(username,password,permission);
         if (n == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"增加用户失败");
+            return Result.failure(ResponseCodeEnum.ERROR);
         }
         return Result.success();
     }
