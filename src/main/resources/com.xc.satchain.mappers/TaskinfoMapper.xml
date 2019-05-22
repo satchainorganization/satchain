@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xc.satchain.mappers/TaskinfoMapper.xml" >
+<mapper namespace="com.satchain.dao.TaskinfoMapper" >
   <resultMap id="BaseResultMap" type="com.satchain.bean.model.Taskinfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="任务编号" property="taskUuid" jdbcType="INTEGER" />
@@ -24,9 +24,9 @@
   <sql id="任务分配表_where">
     <where>
 
-      <if test="satelliteid != null and satelliteid != ''">
+      <if test="satelliteUuid != null">
         and 卫星编号 in
-        <foreach item="item" collection="satelliteid" separator="," open="(" close=")" index="">
+        <foreach item="item" collection="satelliteUuid" separator="," open="(" close=")" index="">
           #{item}
         </foreach>
       </if>
@@ -36,10 +36,10 @@
       <if test="distrisign != null and distrisign != ''">
         and 分发标志=#{distrisign}
       </if>
-      <if test="starttime != null and starttime != ''">
+      <if test="starttime != null">
         and 计划开始时间 >= #{starttime}
       </if>
-      <if test="stoptime != null and stoptime != ''">
+      <if test="stoptime != null">
         and 计划开始时间 &lt;= #{stoptime}
       </if>
     </where>
@@ -49,8 +49,8 @@
       <if test="constellationid != null and constellationid != ''">
         and
       </if>
-      <if test="satelliteid != null and satelliteid != ''">
-        and 卫星编号=#{satelliteid}
+      <if test="satelliteUuid != null and satelliteUuid != ''">
+        and 卫星编号=#{satelliteUuid}
       </if>
       <if test="planstarttime != null and planstarttime != ''">
         and 任务开始时间 >= #{planstarttime}
@@ -77,7 +77,7 @@
     select
     <include refid="Base_Column_List" />
     from 任务分配表
-    where 卫星编号 = #{satelliteid}
+    where 卫星编号 = #{satelliteUuid}
   </select>
 
   <select id="queryTaskInfoByidAndTime" resultMap="BaseResultMap">
@@ -85,8 +85,8 @@
     <include refid="Base_Column_List" />
     from 任务分配表
     <where>
-      <if test="satelliteid != null and satelliteid != ''">
-        and 卫星编号=#{satelliteid}
+      <if test="satelliteUuid != null and satelliteUuid != ''">
+        and 卫星编号=#{satelliteUuid}
       </if>
       <if test="starttime != null and starttime != ''">
         and 计划开始时间 >= #{starttime}

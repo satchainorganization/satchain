@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -31,8 +32,8 @@ public class TaskAssignmentService {
      * @return
      */
     public List<TaskInfoVO> queryTask(QueryTaskBO bo){
-        Timestamp startTime = TimeConvertUtil.str2dateTime(bo.getPlanstarttime());
-        Timestamp endTime = TimeConvertUtil.str2dateTime(bo.getPlanstoptime());
+        Date startTime = TimeConvertUtil.str2date(bo.getPlanstarttime());
+        Date endTime = TimeConvertUtil.str2date(bo.getPlanstoptime());
 
         List<String> satId = new ArrayList<>();
         if (!bo.getConstellationid().isEmpty()&&bo.getSatelliteid().isEmpty()){
