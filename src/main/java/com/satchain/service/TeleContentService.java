@@ -58,25 +58,26 @@ public class TeleContentService {
         return contentinfoMapper.insert(contentinfo);
     }
     /**
+     * @constellationId 星座编号
+     * @param satelliteid 卫星编号
      * 遥控内容查询
      */
     public List<ContentInfoVO> queryContentInfo(String constellationId, String satelliteid,
                                                 Date begintime, Date endtime){
         List<ContentInfoVO> contentinfos = new ArrayList<>();
-        Date startTime = begintime;
-	    Date endTime = endtime;
 
         List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.queryBySateOrConstID(satelliteid,constellationId);
         for (Satelliteinfo sat : satelliteinfos){
-            List<Taskinfo> taskinfos = taskinfoMapper.queryTaskInfoByidAndTime(sat.getSatelliteUuid(),startTime,endTime);
+            List<Taskinfo> taskinfos = taskinfoMapper.queryTaskInfoByidAndTime(sat.getSatelliteUuid(),begintime,endtime);
             for (Taskinfo taskinfo : taskinfos){
                 Contentinfo contentinfo = contentinfoMapper.selectByTaskId(taskinfo.getTaskUuid());
+
                 ContentInfoVO contentInfoVO = new ContentInfoVO();
                 contentInfoVO.setTaskID(taskinfo.getTaskUuid());
                 contentInfoVO.setConstellationid(sat.getConstellationType());
                 contentInfoVO.setSatelliteid(taskinfo.getSatelliteUuid());
                 contentInfoVO.setGroundid(taskinfo.getEarthUuid());
-                contentInfoVO.setTaskContent(contentinfo.getTaskContent());
+                contentInfoVO.setTaskContent(contentinfo == null ? null : contentinfo.getTaskContent());
                 Date time = taskinfo.getTaskStartTime();
                 contentInfoVO.setTaskTime(TimeConvertUtil.date2String(time));
                 contentinfos.add(contentInfoVO);

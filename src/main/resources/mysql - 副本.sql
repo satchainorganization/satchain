@@ -23,7 +23,7 @@ CREATE TABLE `卫星信息表`(
  	`数据下行ERP值` VARCHAR(32) DEFAULT '',
  	`数据上行频率` VARCHAR(32) DEFAULT '',
  	`数据上行接收增益` VARCHAR(32) DEFAULT '',
- 	`业务下行接收增益` VARCHAR(32) DEFAULT '',
+ 	`业务下行频率` VARCHAR(32) DEFAULT '',
  	`业务下行ERP值` VARCHAR(32) DEFAULT '',
  	`业务上行频率` VARCHAR(32) DEFAULT '',
  	`业务上行接收增益` VARCHAR(32) DEFAULT '',
@@ -70,7 +70,7 @@ CREATE TABLE `任务分配表`(
 	`分发标志` TINYINT(4),
 	`任务标志` TINYINT(1),
 	`ACK` BIGINT(20),
-	PRIMARY KEY(`id`),
+	PRIMARY KEY(`任务编号`),
 	UNIQUE KEY `idx_task_uuid` (`任务编号`),
 	UNIQUE KEY `idx_ground_uuid` (`地面站编号`),
 	UNIQUE KEY `idx_satellite_uuid` (`卫星编号`)

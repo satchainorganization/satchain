@@ -84,14 +84,14 @@
     <include refid="Base_Column_List" />
     from 任务分配表
     <where>
-      <if test="satelliteid != null and satelliteid != ''">
-        and 卫星编号=#{satelliteid}
+      <if test="satelliteUuid != null and satelliteUuid != ''">
+        and 卫星编号=#{satelliteUuid}
       </if>
-      <if test="starttime != null and starttime != ''">
-        and 计划开始时间 >= #{starttime}
+      <if test="starttime != null ">
+        and 计划开始时间 <![CDATA[ >= ]]> #{starttime}
       </if>
-      <if test="stoptime != null and stoptime != ''">
-        and 计划开始时间 &lt;= #{stoptime}
+      <if test="stoptime != null ">
+        and 计划截止时间 <![CDATA[ <= ]]> #{stoptime}
       </if>
     </where>
   </select>
