@@ -31,28 +31,36 @@ public class LoginController {
 
     /**
      * 登录验证
+     *
      * @param username
      * @param password
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request){
+    public Result login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request) {
 
-
+        if ((username == "" && username == null) || (password == "" && password == null)) {
+            return Result.failure(ResponseCodeEnum.ERROR, "用户名或密码不能为空！");
+        }
         String pwd = loginService.getPassword(username);
-        if(!password.equals("") && password.equals(pwd)) {
+        if (pwd.equals("nameNotExists")) {
+            return Result.failure(ResponseCodeEnum.ERROR, "用户名不存在！");
+        }
+        if (pwd != null && !pwd.equals(password)) {
+            return Result.failure(ResponseCodeEnum.ERROR, "密码错误！");
+        } else if (pwd != null && pwd.equals(password)) {
 
-            Map<String,Object> map = new HashMap<String, Object>();
+            Map<String, Object> map = new HashMap<String, Object>();
             HttpSession session = request.getSession();
             String token = TokenUtil.genetateToken();
-            session.setAttribute(SESSION_TOKEN_KEY,token);
+            session.setAttribute(SESSION_TOKEN_KEY, token);
             session.setAttribute(SESSION_USERNAME_KEY, username);
             session.setMaxInactiveInterval(30 * 60);
             map.put("token", token);
             return Result.success(map);
+        }else{
+            return Result.failure(ResponseCodeEnum.ERROR,"系统错误，请稍后重试！");
         }
-
-        return Result.failure(ResponseCodeEnum.ERROR);
     }
 
     @RequestMapping("/exit")
@@ -61,7 +69,7 @@ public class LoginController {
 
         HttpSession session = request.getSession();
         String sessionToken = (String) session.getAttribute(SESSION_TOKEN_KEY);
-        if(token != null && token.equals(sessionToken)) {
+        if (token != null && token.equals(sessionToken)) {
 
             session.removeAttribute(SESSION_TOKEN_KEY);
         }
