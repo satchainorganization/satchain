@@ -44,12 +44,13 @@ public class ConstellationinfoService {
      */
     public ConstellationinfoVO queryConstellationInfo(String constellationId) {
         Constellationinfo con = constellationinfoMapper.selectById(constellationId);
-
         ConstellationinfoVO constellationinfoVO = new ConstellationinfoVO();
-        constellationinfoVO.setConstellationId(con.getConstellationUuid());
-        constellationinfoVO.setConstellationName(con.getConstellationName());
-        constellationinfoVO.setConstellationType(con.getConstellationType());
-        constellationinfoVO.setConstellationOwners(con.getUserName());
+        if(con != null){
+            constellationinfoVO.setConstellationId(con.getConstellationUuid());
+            constellationinfoVO.setConstellationName(con.getConstellationName());
+            constellationinfoVO.setConstellationType(con.getConstellationType());
+            constellationinfoVO.setConstellationOwners(con.getUserName());
+        }
         return constellationinfoVO;
     }
 
@@ -61,7 +62,11 @@ public class ConstellationinfoService {
      * @param constellationOwners
      * @return
      */
-    public Integer addConstellationInfo(String constellationId,String constellationName,Integer constellationType, String constellationOwners) {
+    public Integer addConstellationInfo(String constellationId,String constellationName,Integer constellationType, String constellationOwners) throws Exception {
+        Constellationinfo con = constellationinfoMapper.selectById(constellationId);
+        if(con != null) {
+            throw new Exception("添加失败，星座已经存在！");
+        }
         Constellationinfo constellationinfo = new Constellationinfo();
         constellationinfo.setConstellationUuid(constellationId);
         constellationinfo.setConstellationName(constellationName);
@@ -76,8 +81,8 @@ public class ConstellationinfoService {
      * @param constellationName
      * @return
      */
-    public Integer deleteConstellationInfo(String constellationId,String constellationName) {
-        int deleteResult = constellationinfoMapper.deleteById(constellationId,constellationName);
+    public Integer deleteConstellationInfo(String constellationUuid,String constellationName) {
+        int deleteResult = constellationinfoMapper.deleteById(constellationUuid,constellationName);
         return deleteResult;
     }
 

@@ -65,7 +65,7 @@ public class ConstellationinfoController {
     public Result addConstellation(@RequestParam("constellationId") String constellationId,
                                    @RequestParam("constellationName") String constellationName,
                                    @RequestParam("constellationType") Integer constellationType,
-                                   @RequestParam("constellationOwners") String constellationOwners){
+                                   @RequestParam("constellationOwners") String constellationOwners) throws Exception{
         Assert.notNull(constellationId,"参数错误！");
         Assert.notNull(constellationName,"参数错误！");
         Assert.notNull(constellationType,"参数错误！");
@@ -97,13 +97,14 @@ public class ConstellationinfoController {
                                       @RequestParam("constellationName") String constellationName,
                                       @RequestParam("constellationType") Integer constellationType,
                                       @RequestParam("constellationOwners") String constellationOwners){
+        Result result = Result.success();
         Assert.notNull(constellationId,"参数错误！");
         Assert.notNull(constellationName,"参数错误！");
         Assert.notNull(constellationType,"参数错误！");
         Assert.notNull(constellationOwners,"参数错误！");
         int n = constellationinfoService.updateConstellationInfo(constellationId,constellationName,constellationType,constellationOwners);
         if (n<=0){
-            Result.failure(ResponseCodeEnum.ERROR,"更新卫星失败！");
+            result = Result.failure(ResponseCodeEnum.ERROR,"更新卫星失败！");
         }
         ConstellationinfoVO con = new ConstellationinfoVO();
 
@@ -111,6 +112,7 @@ public class ConstellationinfoController {
         con.setConstellationName(constellationName);
         con.setConstellationType(constellationType);
         con.setConstellationOwners(constellationOwners);
-        return Result.success(con);
+        result.setData(con);
+        return result;
     }
 }
