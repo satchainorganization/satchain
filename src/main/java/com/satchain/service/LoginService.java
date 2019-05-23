@@ -15,7 +15,7 @@ public class LoginService {
 
     public String getPassword(String loginName) {
         List<Userinfo> userinfoList = userinfoMapper.queryUserInfoByName(loginName);
-        if(userinfoList.isEmpty()){
+        if(userinfoList == null || userinfoList.isEmpty()){
             return "";
         }else{
             return userinfoList.get(0).getPassword();
