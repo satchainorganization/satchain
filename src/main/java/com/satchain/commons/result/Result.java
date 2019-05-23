@@ -67,11 +67,12 @@ public class Result implements Serializable {
         return result;
     }
 
-    public static Result failure(ResponseCodeEnum resultCode, Object data) {
+    public static Result failure(ResponseCodeEnum resultCode, String data) {
         Result result = new Result();
         result.setCode(resultCode.getCode());
-        result.setMessage(resultCode.getDesc());
-        result.setData(data);
+        //result.setMessage(resultCode.getDesc());
+        result.setMessage(data);
+        result.setData("");
         return result;
     }
 }

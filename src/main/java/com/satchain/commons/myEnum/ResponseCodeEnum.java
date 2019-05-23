@@ -6,8 +6,9 @@ package com.satchain.commons.myEnum;
 public enum ResponseCodeEnum {
     SUCCESS(1,"成功"),
     ERROR(0,"失败"),
-    // TODO: 2019/5/19 dsf
-    PERMISSION_DENY(0, "无权限")
+    /*LOGIN_USER_ERROR(0,"用户名不存在！"),
+    LOGIN_PASS_ERROR(0,"密码不存在！"),
+    PERMISSION_DENY(0, "无权限"),*/
     ;
 
     private int code;
