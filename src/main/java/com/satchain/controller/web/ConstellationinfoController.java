@@ -65,7 +65,7 @@ public class ConstellationinfoController {
     public Result addConstellation(@RequestParam("constellationId") String constellationId,
                                    @RequestParam("constellationName") String constellationName,
                                    @RequestParam("constellationType") Integer constellationType,
-                                   @RequestParam("constellationOwners") String constellationOwners){
+                                   @RequestParam("constellationOwners") String constellationOwners) throws Exception{
         Assert.notNull(constellationId,"参数错误！");
         Assert.notNull(constellationName,"参数错误！");
         Assert.notNull(constellationType,"参数错误！");

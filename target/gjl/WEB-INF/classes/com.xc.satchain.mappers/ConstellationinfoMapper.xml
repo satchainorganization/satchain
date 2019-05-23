@@ -31,7 +31,7 @@
         and 星座编号 = #{constellationUuid}
       </if>
       <if test="constellationName != null" >
-        and 星座名称 = #{constellationName},
+        and 星座名称 = #{constellationName}
       </if>
     </where>
   </delete>
@@ -41,6 +41,7 @@
       星座类型, 业主名)
     values (#{id}, #{constellationUuid}, #{constellationName},
       #{constellationType}, #{userName})
+
   </insert>
   <insert id="insertSelective" parameterType="com.satchain.bean.model.Constellationinfo" >
     insert into 星座信息表

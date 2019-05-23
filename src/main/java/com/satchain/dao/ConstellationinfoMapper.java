@@ -2,7 +2,6 @@ package com.satchain.dao;
 
 import com.satchain.bean.model.Constellationinfo;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
 
 public interface ConstellationinfoMapper {
 
-    int deleteById(@Param("constellationId") String constellationId, @Param("constellationName") String constellationName);
+    int deleteById(@Param("constellationUuid") String constellationUuid, @Param("constellationName") String constellationName);
 
     int insert(Constellationinfo record);
 
