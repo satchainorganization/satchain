@@ -1,6 +1,9 @@
 package com.satchain.bean.vo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class SatelliteInfoVO {
 
@@ -48,7 +51,8 @@ public class SatelliteInfoVO {
 
     private BigDecimal perigeeAngle;//近地点角距
 
-    private String perigeeTime;//近地点时刻
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date perigeeTime;//近地点时刻
 
     public String getSatelliteId() {
         return satelliteId;
@@ -226,11 +230,11 @@ public class SatelliteInfoVO {
         this.perigeeAngle = perigeeAngle;
     }
 
-    public String getPerigeeTime() {
+    public Date getPerigeeTime() {
         return perigeeTime;
     }
 
-    public void setPerigeeTime(String perigeeTime) {
+    public void setPerigeeTime(Date perigeeTime) {
         this.perigeeTime = perigeeTime;
     }
 }

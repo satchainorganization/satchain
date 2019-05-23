@@ -1,5 +1,7 @@
 package com.satchain.bean.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -53,6 +55,7 @@ public class Satelliteinfo {
 
     private BigDecimal perigeeAngularDistance;//近地点角距
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date perigeeMoment;//近地点时刻
 
     public Long getId() {

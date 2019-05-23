@@ -24,6 +24,7 @@ public class HandlerControllerException {
 		result.setCode(ResponseCodeEnum.ERROR.getCode());
 		result.setMessage(ex.getMessage());
 		WebUtils.writeToPage(JSONUtils.toJson(result), response);
+		ex.printStackTrace();
 		return null;
 	}
 }

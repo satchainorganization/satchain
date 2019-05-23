@@ -89,7 +89,7 @@
       #{telemetryFrequency}, #{telemetryErp}, #{telecontrolFrequency},
       #{telecontrolReceivingGain}, #{dataDownlinkFrequency},
       #{dataDownlinkErp}, #{dataUplinkFrequency}, #{dataUplinkReceivingGain},
-      #{businessDownlinkReceivingGain}, #{businessDownlinkErp},
+      #{businessDownlinkFrequency}, #{businessDownlinkErp},
       #{businessUplinkFrequency}, #{businessUplinkReceivingGain},
       #{dipAngle}, #{equatorialRadius}, #{eccentricity},
       #{majorSemiaxis}, #{perigeeAngularDistance}, #{perigeeMoment}
@@ -138,8 +138,8 @@
       <if test="dataUplinkReceivingGain != null" >
         数据上行接收增益 = #{dataUplinkReceivingGain},
       </if>
-      <if test="businessDownlinkReceivingGain != null" >
-        业务下行频率 = #{businessDownlinkReceivingGain},
+      <if test="businessDownlinkFrequency != null" >
+        业务下行频率 = #{businessDownlinkFrequency},
       </if>
       <if test="businessDownlinkErp != null" >
         业务下行ERP值 = #{businessDownlinkErp},
@@ -186,7 +186,7 @@
       数据下行ERP值 = #{dataDownlinkErp},
       数据上行频率 = #{dataUplinkFrequency},
       数据上行接收增益 = #{dataUplinkReceivingGain},
-      业务下行频率 = #{businessDownlinkReceivingGain},
+      业务下行频率 = #{businessDownlinkFrequency},
       业务下行ERP值 = #{businessDownlinkErp},
       业务上行频率 = #{businessUplinkFrequency},
       业务上行接收增益 = #{businessUplinkReceivingGain},

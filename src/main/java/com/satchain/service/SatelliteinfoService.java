@@ -2,12 +2,10 @@ package com.satchain.service;
 
 import com.satchain.bean.model.Satelliteinfo;
 import com.satchain.bean.vo.SatelliteInfoVO;
-import com.satchain.commons.utils.TimeConvertUtil;
 import com.satchain.dao.SatelliteinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,8 +50,7 @@ public class SatelliteinfoService {
             satelliteInfoVO.setEccentricity(sat.getEccentricity());
             satelliteInfoVO.setSemiMajorAxis(sat.getMajorSemiaxis());
             satelliteInfoVO.setPerigeeAngle(sat.getPerigeeAngularDistance());
-            String perigeeTime = TimeConvertUtil.date2String(sat.getPerigeeMoment());
-            satelliteInfoVO.setPerigeeTime(perigeeTime);
+            satelliteInfoVO.setPerigeeTime(sat.getPerigeeMoment());
             satelliteInfoVOS.add(satelliteInfoVO);
         }
         return satelliteInfoVOS;
@@ -91,8 +88,7 @@ public class SatelliteinfoService {
         satelliteinfo.setEccentricity(bo.getEccentricity());
         satelliteinfo.setMajorSemiaxis(bo.getSemiMajorAxis());
         satelliteinfo.setPerigeeAngularDistance(bo.getPerigeeAngle());
-        Timestamp perigeeTime = TimeConvertUtil.str2dateTime(bo.getPerigeeTime());
-        satelliteinfo.setPerigeeMoment(perigeeTime);
+        satelliteinfo.setPerigeeMoment(bo.getPerigeeTime());
 
         return satelliteinfoMapper.insert(satelliteinfo);
     }
@@ -110,6 +106,7 @@ public class SatelliteinfoService {
         Satelliteinfo satelliteinfo = new Satelliteinfo();
         satelliteinfo.setSatelliteUuid(bo.getSatelliteId());
         satelliteinfo.setNasaUuid(bo.getNasaId());
+        satelliteinfo.setSatelliteName(bo.getSatelliteName());
         satelliteinfo.setConstellationType(bo.getConstellationId());
         satelliteinfo.setSatelliteType(bo.getSatelliteType());
         satelliteinfo.setTelemetryFrequency(bo.getTelemetryFre());
@@ -129,8 +126,7 @@ public class SatelliteinfoService {
         satelliteinfo.setEccentricity(bo.getEccentricity());
         satelliteinfo.setMajorSemiaxis(bo.getSemiMajorAxis());
         satelliteinfo.setPerigeeAngularDistance(bo.getPerigeeAngle());
-        Timestamp perigeeTime = TimeConvertUtil.str2dateTime(bo.getPerigeeTime());
-        satelliteinfo.setPerigeeMoment(perigeeTime);
+        satelliteinfo.setPerigeeMoment(bo.getPerigeeTime());
         return satelliteinfoMapper.updateByIdSelective(satelliteinfo);
     }
 
