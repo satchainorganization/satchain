@@ -13,9 +13,9 @@ public interface MonitorinfoMapper {
 
     int insertSelective(Monitorinfo record);
 
-    List<Monitorinfo> selectById(@Param("monitorId") String monitorId, @Param("monitorStation") String monitorStation);
+    List<Monitorinfo> selectById(@Param("monitorUuid") String monitorUuid, @Param("monitorStation") String monitorStation);
 
-    int updateByIdSelective(@Param("monitorId") String monitorId, @Param("monitorStation") String monitorStation,
+    int updateByIdSelective(@Param("monitorUuid") String monitorUuid, @Param("monitorStation") String monitorStation,
                             @Param("monitorUrl") String monitorUrl);
 
     int updateByPrimaryKey(Monitorinfo record);

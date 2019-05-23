@@ -17,17 +17,17 @@ public class MonitorinfoService {
     /**
      * 3.40 添加监控器
      * @param monitorStation
-     * @param monitorid
+     * @param monitorUuid
      * @param monitorUri
      * @return
      */
-    public Integer addMonitorInfo(String monitorStation, String monitorid, String monitorUri) throws Exception {
-        List<Monitorinfo> monitorinfos = monitorinfoMapper.selectById(monitorid, null);
+    public Integer addMonitorInfo(String monitorStation, String monitorUuid, String monitorUri) throws Exception {
+        List<Monitorinfo> monitorinfos = monitorinfoMapper.selectById(monitorUuid, null);
         if (monitorinfos.size()>0){
             throw new Exception("添加失败，监视器已存在！");
         }
         Monitorinfo bo = new Monitorinfo();
-        bo.setMonitorUuid(monitorid);
+        bo.setMonitorUuid(monitorUuid);
         bo.setMonitorPosition(monitorStation);
         bo.setMonitorIp(monitorUri);
         return monitorinfoMapper.insert(bo);
