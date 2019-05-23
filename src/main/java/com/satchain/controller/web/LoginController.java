@@ -5,6 +5,7 @@ import com.satchain.commons.result.Result;
 import com.satchain.commons.utils.TokenUtil;
 import com.satchain.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +39,8 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request){
 
-
+        Assert.notNull(username,"用户名不能为空！");
+        Assert.notNull(password,"密码不能为空！");
         String pwd = loginService.getPassword(username);
         if(!password.equals("") && password.equals(pwd)) {
 
