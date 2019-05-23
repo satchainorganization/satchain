@@ -17,7 +17,6 @@ import java.util.Map;
 
 /**
  * 星座信息表
- * // TODO: 2019/5/23  mapper乱码
  */
 @RestController
 public class ConstellationinfoController {
@@ -30,6 +29,7 @@ public class ConstellationinfoController {
 
     /**
      * 31 查詢星座下的所有卫星
+     * // TODO: 2019/5/23 mapper乱码
      * @param constellationId
      * @return
      */

@@ -68,6 +68,7 @@ public class EarthinfoController {
      * 26 更改地面站信息
      */
     // TODO: 2019/5/23 put、delete 参数无法通过请求体传输
+    // TODO: 2019/5/23 加requestBody 415 – Unsupported Media Type
     @RequestMapping(value = "/updateGroundStation", method = RequestMethod.PUT)
     public Result updateGroundStation(@RequestBody Earthinfo bo) throws Exception {
         Assert.notNull(bo,"参数错误！");

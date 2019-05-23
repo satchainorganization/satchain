@@ -6,10 +6,7 @@ import com.satchain.commons.result.Result;
 import com.satchain.service.LoginfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,13 +35,14 @@ public class LoginfoController {
 
     /**
      * 3.18删除日志
+     * // TODO: 2019/5/23 requestBody 400 无提示信息
      */
     @RequestMapping(value = "/deleteLog", method = RequestMethod.DELETE)
-    public Result deleteLog(@RequestParam("starttime") String startTime,
-                            @RequestParam("stoptime") String stopTime){
-        Assert.notNull(startTime,"参数错误！");
-        Assert.notNull(stopTime,"参数错误！");
-        int deleNum = loginfoService.deleteLogInfo(startTime,stopTime);
+    public Result deleteLog(@RequestBody String starttime,
+                            @RequestBody String stoptime){
+        Assert.notNull(starttime,"参数错误！");
+        Assert.notNull(stoptime,"参数错误！");
+        int deleNum = loginfoService.deleteLogInfo(starttime, stoptime);
         if (deleNum == 0){
             return Result.failure(ResponseCodeEnum.ERROR,"无相应日志");
         }
