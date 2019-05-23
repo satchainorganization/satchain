@@ -19,7 +19,7 @@
        default-autowire="byName">
 
     <context:component-scan base-package="com.satchain.controller.web, com.satchain.service"/>
-
+    <bean class="com.satchain.commons.utils.HandlerControllerException"></bean>
     <mvc:annotation-driven/>
     <!--<mvc:default-servlet-handler/>-->
 
