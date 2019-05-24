@@ -1,21 +1,14 @@
 package com.satchain.bean.vo;
 
-public class LogInfoVO {
-    private Long id;
+import java.io.Serializable;
+
+public class LogInfoVO implements Serializable {
 
     private String time;//日志产生时间
 
     private String module;//产生日志的模块
 
     private String event;//具体事件
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTime() {
         return time;

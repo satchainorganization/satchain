@@ -20,10 +20,10 @@
     from 系统日志表
     <where>
       <if test="startTime != null" >
-        and 时间 >= #{startTime},
+        and 时间 >= #{startTime}
       </if>
       <if test="stopTime != null" >
-        and 时间 &lt;= #{stopTime},
+        and 时间 &lt;= #{stopTime}
       </if>
     </where>
     order by 时间
