@@ -1,22 +1,11 @@
 package com.satchain.interceptor;
 
-import com.alibaba.fastjson.JSON;
-import com.satchain.bean.model.Userinfo;
-import com.satchain.bean.vo.UserInfoVO;
-import com.satchain.commons.constants.Constants;
-import com.satchain.commons.myEnum.ResponseCodeEnum;
-import com.satchain.commons.myEnum.UserRoleEnum;
-import com.satchain.commons.result.Result;
 import com.satchain.service.UserinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * @author 董少飞
@@ -30,8 +19,8 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-/*
-        String username = (String) request.getAttribute(Constants.SESSION_USERNAME_KEY);
+
+        /*String username = (String) request.getAttribute(Constants.SESSION_USERNAME_KEY);
         List<UserInfoVO> userInfoVOList = userinfoService.queryUserInfo(username);
 
         if(request.getRequestURI().equals(Constants.ADD_USER_URL) && !userInfoVOList.get(0).getPermission().equals(UserRoleEnum.ADMIN.key)) {
@@ -39,6 +28,23 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
             ServletOutputStream outputStream = response.getOutputStream();
             outputStream.print(JSON.toJSONString(Result.failure(ResponseCodeEnum.PERMISSION_DENY)));
             return false;
+        }
+        return true;*/
+        /*String requestURI = request.getRequestURI();
+        if(requestURI.indexOf("/login")<0){
+            //说明处在编辑的页面
+            HttpSession session = request.getSession();
+            String username = (String) session.getAttribute(Constants.SESSION_USERNAME_KEY);
+            if(username!=null){
+                //登陆成功的用户
+                return true;
+            }else{
+                //没有登陆，转向登陆界面
+                //request.getRequestDispatcher("../view/Login.jsp").forward(request,response);
+                return false;
+            }
+        }else{
+            return true;
         }*/
         return true;
     }
