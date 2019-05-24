@@ -55,7 +55,8 @@ public class EarthinfoService {
     public Integer insertEarthInfo(Earthinfo bo) throws Exception {
         List<Earthinfo> earthinfo = earthinfoMapper.queryEarthInfoByGroundId(bo.getGroundId());
         if (earthinfo.size() > 0){
-            throw new Exception("新增地面站已经存在！");
+           // throw new Exception("新增地面站已经存在！");
+            return 0;
         }
         return earthinfoMapper.insert(bo);
     }
