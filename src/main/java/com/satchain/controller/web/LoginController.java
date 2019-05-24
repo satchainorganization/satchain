@@ -70,7 +70,7 @@ public class LoginController {
         HttpSession session = request.getSession();
         String sessionToken = (String) session.getAttribute(SESSION_TOKEN_KEY);
         if (token != null && token.equals(sessionToken)) {
-
+            session.removeAttribute(SESSION_USERNAME_KEY);
             session.removeAttribute(SESSION_TOKEN_KEY);
         }
 

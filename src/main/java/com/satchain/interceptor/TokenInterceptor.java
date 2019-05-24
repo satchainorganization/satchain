@@ -1,11 +1,17 @@
 package com.satchain.interceptor;
 
+import com.satchain.commons.constants.Constants;
+import com.satchain.commons.myEnum.ResponseCodeEnum;
+import com.satchain.commons.result.Result;
+import com.satchain.commons.utils.JSONUtils;
+import com.satchain.commons.utils.WebUtils;
 import com.satchain.service.UserinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author 董少飞
@@ -30,7 +36,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
             return false;
         }
         return true;*/
-        /*String requestURI = request.getRequestURI();
+        String requestURI = request.getRequestURI();
         if(requestURI.indexOf("/login")<0){
             //说明处在编辑的页面
             HttpSession session = request.getSession();
@@ -41,12 +47,15 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
             }else{
                 //没有登陆，转向登陆界面
                 //request.getRequestDispatcher("../view/Login.jsp").forward(request,response);
+                Result result = new Result();
+                result.setCode(ResponseCodeEnum.ERROR.getCode());
+                result.setMessage("请先登录！");
+                WebUtils.writeToPage(JSONUtils.toJson(result), response);
                 return false;
             }
         }else{
             return true;
-        }*/
-        return true;
+        }
     }
 
 }
