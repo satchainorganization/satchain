@@ -16,6 +16,6 @@ public interface EarthinfoMapper {
 
     int updateByGroundId(Earthinfo record);
 
-    List<Earthinfo> queryEarthInfoByGroundId(@Param("groundId") String groundId, @Param("groundName") String groundName);
+    List<Earthinfo> queryEarthInfoByGroundId(@Param("groundId") String groundId);
 
 }

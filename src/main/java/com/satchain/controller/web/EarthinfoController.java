@@ -21,8 +21,8 @@ public class EarthinfoController {
      * 23地面站信息查询
      */
     @RequestMapping(value = "/queryGroundStation", method = RequestMethod.POST)
-    public Result queryGroundStation(@RequestParam("groundId") String groundId, @RequestParam("groundName") String groundName){
-        return Result.success(earthinfoService.queryEarthInfo(groundId,groundName));
+    public Result queryGroundStation(@RequestParam("groundId") String groundId){
+        return Result.success(earthinfoService.queryEarthInfo(groundId));
     }
     /**
      * 24新增地面站

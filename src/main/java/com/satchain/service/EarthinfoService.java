@@ -20,11 +20,10 @@ public class EarthinfoService {
     /**
      * 查询地面站信息
      * @param groundId
-     * @param groundName
      * @return
      */
-    public List<EarthInfoVO> queryEarthInfo(String groundId, String groundName) {
-        List<Earthinfo> earthinfos = earthinfoMapper.queryEarthInfoByGroundId(groundId,groundName);
+    public List<EarthInfoVO> queryEarthInfo(String groundId) {
+        List<Earthinfo> earthinfos = earthinfoMapper.queryEarthInfoByGroundId(groundId);
 
         List<EarthInfoVO> earthInfoVOS = new ArrayList<>();
         for (Earthinfo earth : earthinfos){
@@ -54,7 +53,7 @@ public class EarthinfoService {
      * @return
      */
     public Integer insertEarthInfo(Earthinfo bo) throws Exception {
-        List<Earthinfo> earthinfo = earthinfoMapper.queryEarthInfoByGroundId(bo.getGroundId(),null);
+        List<Earthinfo> earthinfo = earthinfoMapper.queryEarthInfoByGroundId(bo.getGroundId());
         if (earthinfo.size() > 0){
             throw new Exception("新增地面站已经存在！");
         }
@@ -74,7 +73,7 @@ public class EarthinfoService {
      * @param bo
      */
     public Integer updateEarthInfo(Earthinfo bo) throws Exception {
-        List<Earthinfo> earthinfo = earthinfoMapper.queryEarthInfoByGroundId(bo.getGroundId(),null);
+        List<Earthinfo> earthinfo = earthinfoMapper.queryEarthInfoByGroundId(bo.getGroundId());
         if (earthinfo.size() <= 0){
             throw new Exception("地面站不存在！");
         }

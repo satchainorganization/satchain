@@ -33,9 +33,6 @@
       <if test="groundId != null" >
         and 地面站编号 = #{groundId}
       </if>
-      <if test="groundName != null" >
-        and 地面站名称 = #{groundName}
-      </if>
     </where>
   </select>
   <delete id="deleteByGroundId" >

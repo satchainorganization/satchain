@@ -7,7 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="544c8578-ec4d-4ff9-98ed-39aa184c2c59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/DeviceRelationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/DeviceRelationMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/EarthinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/EarthinfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satchain/dao/EarthinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satchain/dao/EarthinfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satchain/service/EarthinfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satchain/service/EarthinfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/EarthinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/EarthinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/EarthinfoService.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,43 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TokenInterceptor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/interceptor/TokenInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TelemetryDataMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/TelemetryDataMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-456" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HandlerControllerException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/commons/utils/HandlerControllerException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="25" selection-end-column="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HandlerExecutionChain.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.1.7.RELEASE/spring-webmvc-4.1.7.RELEASE.jar!/org/springframework/web/servlet/HandlerExecutionChain.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -99,11 +68,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeviceRelationMapper.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeviceRelationMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/DeviceRelationMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            <state relative-caret-position="88">
+              <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthinfoController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/EarthinfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthinfoService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/service/EarthinfoService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="25" column="77" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthinfoMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/dao/EarthinfoMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthinfoMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/EarthinfoMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -128,9 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>satelliteid</find>
-      <find>任务分配表_where</find>
-      <find>plantarttime</find>
       <find>selectByTaskId</find>
       <find>Base_Column_List</find>
       <find>updateByTaskId</find>
@@ -157,7 +159,10 @@
       <find>l</find>
       <find>/exi</find>
       <find>selectBySatelliteId</find>
+      <find>queryGroundStation</find>
       <find>satelliteId</find>
+      <find>groundName</find>
+      <find>queryEarthInfoByGroundId</find>
     </findStrings>
     <replaceStrings>
       <replace>String</replace>
@@ -187,9 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/UserinfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/satchain/service/UserinfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/satchain/bean/vo/ContentInfoVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/bean/bo/TeleControlContentBO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/bean/model/Taskinfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TeleContentController.java" />
@@ -216,7 +218,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/bean/vo/SatelliteInfoVO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/SatelliteinfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/service/SatelliteinfoService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/EarthinfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-web.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/commons/constants/Constants.java" />
@@ -238,6 +239,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/satchain/interceptor/TokenInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/DeviceRelationMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/EarthinfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/satchain/dao/EarthinfoMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/satchain/service/EarthinfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/EarthinfoMapper.xml" />
       </list>
     </option>
   </component>
@@ -739,12 +744,12 @@
       <option name="presentableId" value="Default" />
       <updated>1558494610534</updated>
       <workItem from="1558494612119" duration="1716000" />
-      <workItem from="1558573914384" duration="45603000" />
+      <workItem from="1558573914384" duration="46702000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72865000" />
+    <option name="totallyTimeSpent" value="73964000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -770,7 +775,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.21170396" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.383821" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32874355" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32874355" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
@@ -780,8 +785,8 @@
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.43373495" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.4097035" />
       <window_info anchor="bottom" id="Spring" order="14" weight="0.32874355" />
-      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3889845" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23600605" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.5301205" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23600605" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32874355" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -1059,27 +1064,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/bean/model/Contentinfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/bean/vo/ConstellationinfoVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-190">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/bean/model/TelemetryData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/bean/model/Constellationinfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-141">
@@ -1105,13 +1089,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1240">
           <caret line="39" column="86" lean-forward="true" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/EarthinfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="86" column="53" lean-forward="true" selection-start-line="86" selection-start-column="53" selection-end-line="86" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1424,8 +1401,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/DeviceRelationMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state relative-caret-position="88">
+          <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/EarthinfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/service/EarthinfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="25" column="77" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/dao/EarthinfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com.xc.satchain.mappers/EarthinfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
