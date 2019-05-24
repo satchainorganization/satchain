@@ -23,9 +23,9 @@
   <sql id="任务分配表_where">
     <where>
 
-      <if test="satelliteid != null and satelliteid != ''">
+      <if test="satelliteUuid != null and satelliteUuid.size > 0 ">
         and 卫星编号 in
-        <foreach item="item" collection="satelliteid" separator="," open="(" close=")" index="">
+        <foreach item="item" collection="satelliteUuid" index="index" separator="," open="(" close=")">
           #{item}
         </foreach>
       </if>
@@ -35,10 +35,10 @@
       <if test="distrisign != null and distrisign != ''">
         and 分发标志=#{distrisign}
       </if>
-      <if test="starttime != null and starttime != ''">
+      <if test="starttime != null">
         and 计划开始时间 >= #{starttime}
       </if>
-      <if test="stoptime != null and stoptime != ''">
+      <if test="stoptime != null">
         and 计划开始时间 &lt;= #{stoptime}
       </if>
     </where>
@@ -134,7 +134,7 @@
 
   <update id="updateByTaskId" parameterType="com.satchain.bean.model.Taskinfo" >
     update 任务分配表
-    set
+    <set>
       <if test="taskUuid != null" >
         任务编号 = #{taskUuid},
       </if>
@@ -168,6 +168,7 @@
       <if test="ack != null" >
         ACK = #{ack},
       </if>
+    </set>
     where 任务编号 = #{taskUuid}
   </update>
   <update id="updateFlagByTaskId">

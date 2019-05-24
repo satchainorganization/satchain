@@ -74,40 +74,7 @@ public class FileDataController {
         return Result.success();
     }
 
-    /**
-     * 3.37 teleDataDownload遥测数据导出
-     * @param starttime
-     * @param stoptime
-     * @return
-     */
-    @RequestMapping(value = "/teleDataDownload",method = RequestMethod.POST)
-    public Result teleDataDownload(@RequestParam("starttime") String starttime,
-                                   @RequestParam("stoptime") String stoptime){
-        return Result.success();
-    }
 
-
-    /**
-     * 3.38 teleDateUpload遥测数据导入
-     * @param file
-     * @return
-     */
-    @RequestMapping(value = "/teleDateUpload",method = RequestMethod.POST)
-    public Result teleDateUpload(@RequestParam("file") String file){
-        return Result.success();
-    }
-
-    /**
-     * 3.39 teleDateDelete遥测数据删除
-     * @param starttime
-     * @param stoptime
-     * @return
-     */
-    @RequestMapping(value = "/teleDateDelete",method = RequestMethod.DELETE)
-    public Result teleDateDelete(@RequestParam("starttime") String starttime,
-                                 @RequestParam("stoptime") String stoptime){
-        return Result.success();
-    }
 
 
 }

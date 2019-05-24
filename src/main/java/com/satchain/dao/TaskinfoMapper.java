@@ -3,7 +3,6 @@ package com.satchain.dao;
 import com.satchain.bean.model.Taskinfo;
 import org.apache.ibatis.annotations.Param;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public interface TaskinfoMapper {
 
     List<Taskinfo> queryTaskInfoByTaskBO(@Param("satelliteUuid") List satelliteUuid,
                                          @Param("tasktype") Integer tasktype, @Param("distrisign") Integer distrisign,
-                                         @Param("starttime") Timestamp starttime, @Param("stoptime") Timestamp stoptime);
+                                         @Param("starttime") Date starttime, @Param("stoptime") Date stoptime);
     List<Taskinfo> queryTaskInfoByidAndTime(@Param("satelliteUuid") String satelliteUuid,
                                             @Param("starttime") Date starttime, @Param("stoptime") Date stoptime);
 

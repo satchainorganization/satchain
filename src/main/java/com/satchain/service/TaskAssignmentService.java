@@ -5,13 +5,11 @@ import com.satchain.bean.bo.QueryTaskBO;
 import com.satchain.bean.model.Satelliteinfo;
 import com.satchain.bean.model.Taskinfo;
 import com.satchain.bean.vo.TaskInfoVO;
-import com.satchain.commons.utils.TimeConvertUtil;
 import com.satchain.dao.SatelliteinfoMapper;
 import com.satchain.dao.TaskinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,8 +31,8 @@ public class TaskAssignmentService {
      * @return
      */
     public List<TaskInfoVO> queryTask(QueryTaskBO bo){
-        Timestamp startTime = TimeConvertUtil.str2dateTime(bo.getPlanstarttime());
-        Timestamp endTime = TimeConvertUtil.str2dateTime(bo.getPlanstoptime());
+        Date startTime = bo.getPlanstarttime();
+        Date endTime = bo.getPlanstoptime();
 
         List<String> satId = new ArrayList<>();
         if (!bo.getConstellationid().isEmpty()&&bo.getSatelliteid().isEmpty()){
@@ -113,8 +111,8 @@ public class TaskAssignmentService {
         taskinfo.setTaskUuid(bo.getTaskid());
         taskinfo.setSatelliteUuid(bo.getSatelliteid());
         taskinfo.setTaskType(bo.getTasktype());
-        Timestamp startTime = TimeConvertUtil.str2dateTime(bo.getPlanstarttime());
-        Timestamp endTime = TimeConvertUtil.str2dateTime(bo.getPlanstoptime());
+        Date startTime = bo.getPlanstarttime();
+        Date endTime = bo.getPlanstoptime();
         taskinfo.setPlanStartTime(startTime);
         taskinfo.setPlanEndTime(endTime);
         return taskinfoMapper.updateByTaskId(taskinfo);
@@ -137,8 +135,8 @@ public class TaskAssignmentService {
      * @return
      */
     public Integer updateDistrisign(Integer taskid,Integer distrisign){
-        taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
-        return distrisign;
+      int c =  taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
+        return c;
     }
 
 

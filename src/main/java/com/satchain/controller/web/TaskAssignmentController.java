@@ -82,7 +82,7 @@ public class TaskAssignmentController {
         Assert.notNull(taskid,"参数错误！");
         int num = taskAssignmentService.deleteTask(taskid,distrisign);
         if(num == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"删除失败！");
+            return Result.failure(ResponseCodeEnum.ERROR,"删除失败，数据不存在！");
         }
         return Result.success();
     }
@@ -98,7 +98,7 @@ public class TaskAssignmentController {
         Integer dataDistrisign = datadistrisign ? 1 : 0;
         int num = taskAssignmentService.updateDistrisign(taskid,dataDistrisign);
         if(num == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"发布任务失败！");
+            return Result.failure(ResponseCodeEnum.ERROR,"发布任务失败，数据不存在！");
         }
         return Result.success();
     }
@@ -112,7 +112,7 @@ public class TaskAssignmentController {
         Assert.notNull(taskid,"任务编号不能为空！");
         int num = taskAssignmentService.updateDistrisign(taskid, TaskinfoDatadistrisignEnum.NOT_PUBLISH.getCode());
         if(num == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"发布任务失败！");
+            return Result.failure(ResponseCodeEnum.ERROR,"任务撤回失败，数据不存在！");
         }
         return Result.success();
     }
