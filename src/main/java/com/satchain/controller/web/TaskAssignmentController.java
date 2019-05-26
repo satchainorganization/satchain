@@ -43,16 +43,32 @@ public class TaskAssignmentController {
     @RequestMapping(value = "/addTaskAssignment", method = RequestMethod.POST)
     public Result addTask(AddTaskBO bo) {
         Assert.notNull(bo,"参数错误！");
-        Assert.notNull(bo.getGroundid(),"地面站编号不能为空！");
-        Assert.notNull(bo.getSatelliteid(),"卫星编号不能为空！");
-        Assert.notNull(bo.getTasktype(),"类型不能为空！");
-        Assert.notNull(bo.getPlanstarttime(),"开始时间不能为空！");
-        Assert.notNull(bo.getPlanendtime(),"结束时间不能为空！");
+        if (bo.getGroundid() == null || bo.getGroundid() == ""){
+            return Result.failure(ResponseCodeEnum.ERROR,"地面站编号不能为空！");
+        }
+        if (bo.getSatelliteid() == null || bo.getSatelliteid() == ""){
+            return Result.failure(ResponseCodeEnum.ERROR,"卫星编号不能为空！");
+        }
+        if (bo.getTasktype() == null || bo.getTasktype() == 0){
+            return Result.failure(ResponseCodeEnum.ERROR,"类型不能为空！");
+        }
+        if (bo.getPlanstarttime() == null || bo.getPlanstarttime() == ""){
+            return Result.failure(ResponseCodeEnum.ERROR,"开始时间不能为空！");
+        }
+        if (bo.getPlanendtime() == null || bo.getPlanendtime() == ""){
+            return Result.failure(ResponseCodeEnum.ERROR,"结束时间不能为空！");
+        }
 
         int num = taskAssignmentService.addTask(bo);
         //Assert.isTrue(num != 0,"插入失败！");
         if(num == 0){
             return Result.failure(ResponseCodeEnum.ERROR,"新增任务失败！");
+        }
+        if (num == -1){
+            return Result.failure(ResponseCodeEnum.ERROR,"地面站编号不存在！");
+        }
+        if (num == -2){
+            return Result.failure(ResponseCodeEnum.ERROR,"卫星编号不存在！");
         }
         return Result.success();
     }
@@ -68,6 +84,9 @@ public class TaskAssignmentController {
         int num = taskAssignmentService.updateTask(bo);
         if(num == 0){
             return Result.failure(ResponseCodeEnum.ERROR,"更新失败！");
+        }
+        if(num == -1){
+            return Result.failure(ResponseCodeEnum.ERROR,"任务不存在！");
         }
         return Result.success();
     }

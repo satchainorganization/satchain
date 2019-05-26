@@ -24,7 +24,8 @@ public class MonitorinfoService {
     public Integer addMonitorInfo(String monitorStation, String monitorUuid, String monitorUri) throws Exception {
         List<Monitorinfo> monitorinfos = monitorinfoMapper.selectById(monitorUuid, null);
         if (monitorinfos.size()>0){
-            throw new Exception("添加失败，监视器已存在！");
+            return -1;
+            //throw new Exception("添加失败，监视器已存在！");
         }
         Monitorinfo bo = new Monitorinfo();
         bo.setMonitorUuid(monitorUuid);
@@ -71,7 +72,8 @@ public class MonitorinfoService {
     public Integer updateMonitorInfo(String monitorId, String monitorStation, String monitorUrl) throws Exception {
         List<Monitorinfo> monitorinfos = monitorinfoMapper.selectById(monitorId,null);
         if (monitorinfos.size() <= 0){
-            throw new Exception("编辑失败，监视器不存在！");
+            return -1;
+            //throw new Exception("编辑失败，监视器不存在！");
         }
         return monitorinfoMapper.updateByIdSelective(monitorId,monitorStation,monitorUrl);
     }

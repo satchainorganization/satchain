@@ -55,7 +55,10 @@ public class ConstellationinfoController {
      */
     @RequestMapping(value = "/queryConstellation", method = RequestMethod.POST)
     public Result queryConstellation(@RequestParam("constellationId") String constellationId){
-        Assert.notNull(constellationId,"参数错误！");
+        //Assert.notNull(constellationId,"参数错误！");
+        if (constellationId == null || constellationId == ""){
+            return Result.failure(ResponseCodeEnum.ERROR,"星座编号不能为空！");
+        }
         return Result.success(constellationinfoService.queryConstellationInfo(constellationId));
     }
     /**
@@ -72,8 +75,8 @@ public class ConstellationinfoController {
         Assert.notNull(constellationOwners,"参数错误！");
 
         int n = constellationinfoService.addConstellationInfo(constellationId,constellationName,constellationType,constellationOwners);
-        if (n<=0){
-            Result.failure(ResponseCodeEnum.ERROR,"新增卫星失败！");
+        if (n <= 0){
+            Result.failure(ResponseCodeEnum.ERROR,"新增失败，星座已存在！");
         }
         return Result.success();
     }
@@ -104,7 +107,7 @@ public class ConstellationinfoController {
         Assert.notNull(constellationOwners,"参数错误！");
         int n = constellationinfoService.updateConstellationInfo(constellationId,constellationName,constellationType,constellationOwners);
         if (n<=0){
-            result = Result.failure(ResponseCodeEnum.ERROR,"更新卫星失败！");
+            result = Result.failure(ResponseCodeEnum.ERROR,"星座信息不存在，更新失败！");
         }
         ConstellationinfoVO con = new ConstellationinfoVO();
 

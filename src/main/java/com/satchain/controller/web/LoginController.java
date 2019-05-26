@@ -20,7 +20,6 @@ import static com.satchain.commons.constants.Constants.SESSION_USERNAME_KEY;
 
 /**
  * 用户登录
- * // TODO: 2019/5/19 dsf
  */
 @RestController
 @RequestMapping("/")
@@ -31,7 +30,6 @@ public class LoginController {
 
     /**
      * 登录验证
-     *
      * @param username
      * @param password
      * @return
@@ -39,7 +37,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request) {
 
-        if ((username == "" && username == null) || (password == "" && password == null)) {
+        if (username == "" || username == null || password == "" || password == null) {
             return Result.failure(ResponseCodeEnum.ERROR, "用户名或密码不能为空！");
         }
         String pwd = loginService.getPassword(username);

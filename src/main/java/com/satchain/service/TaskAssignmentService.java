@@ -2,9 +2,11 @@ package com.satchain.service;
 
 import com.satchain.bean.bo.AddTaskBO;
 import com.satchain.bean.bo.QueryTaskBO;
+import com.satchain.bean.model.Earthinfo;
 import com.satchain.bean.model.Satelliteinfo;
 import com.satchain.bean.model.Taskinfo;
 import com.satchain.bean.vo.TaskInfoVO;
+import com.satchain.dao.EarthinfoMapper;
 import com.satchain.dao.SatelliteinfoMapper;
 import com.satchain.dao.TaskinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,23 +27,36 @@ public class TaskAssignmentService {
     @Autowired
     private SatelliteinfoMapper satelliteinfoMapper;
 
+    @Autowired
+    private EarthinfoMapper earthinfoMapper;
+
     /**
      * 3 查询任务
      * @param bo
      * @return
      */
     public List<TaskInfoVO> queryTask(QueryTaskBO bo){
-        Date startTime = bo.getPlanstarttime();
-        Date endTime = bo.getPlanstoptime();
+        Date startTime = null;
+        Date endTime = null;
+        try {
+            if (bo.getPlanstarttime() != null){
+                startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstarttime());
+            }
+            if (bo.getPlanstoptime() != null){
+                endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstoptime());
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         List<String> satId = new ArrayList<>();
-        if (!bo.getConstellationid().isEmpty()&&bo.getSatelliteid().isEmpty()){
+        if (bo.getConstellationid()!=null && bo.getSatelliteid()==null){
             List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.queryBySateOrConstID(null, bo.getConstellationid());
             for (Satelliteinfo sat : satelliteinfos){
                 satId.add(sat.getSatelliteUuid());
             }
         }
-        if (!bo.getSatelliteid().isEmpty()){
+        if (bo.getSatelliteid()!=null){
             satId.add(bo.getSatelliteid());
         }
 
@@ -51,19 +66,34 @@ public class TaskAssignmentService {
         for (Taskinfo taskinfo : taskinfoList){
             TaskInfoVO taskInfoVO = new TaskInfoVO();
             taskInfoVO.setTaskid(taskinfo.getTaskUuid());
-            String publishTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getTaskReleaseTime());
-            taskInfoVO.setPublishTime(publishTime);
+            String publishTime = null;
+            if (taskinfo.getTaskReleaseTime() != null){
+                publishTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getTaskReleaseTime());
+                taskInfoVO.setPublishTime(publishTime);
+            }
             taskInfoVO.setSatelliteid(taskinfo.getSatelliteUuid());
             taskInfoVO.setGroundid(taskinfo.getEarthUuid());
             taskInfoVO.setTasktype(taskinfo.getTaskType());
-            String planstarttime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getPlanStartTime());
-            taskInfoVO.setPlanstartime(planstarttime);
-            String planendtime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getPlanEndTime());
-            taskInfoVO.setPlanendtime(planendtime);
-            String taskstarttime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getTaskStartTime());
-            taskInfoVO.setPlanstartime(taskstarttime);
-            String taskendtime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getTaskEndTime());
-            taskInfoVO.setPlanendtime(taskendtime);
+            String planstarttime = null;
+            if (taskinfo.getPlanStartTime() != null){
+                planstarttime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getPlanStartTime());
+                taskInfoVO.setPlanstartime(planstarttime);
+            }
+            String planendtime = null;
+            if (taskinfo.getPlanEndTime() != null){
+                planendtime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getPlanEndTime());
+                taskInfoVO.setPlanendtime(planendtime);
+            }
+            String taskstarttime = null;
+            if (taskinfo.getTaskStartTime() != null){
+                taskstarttime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getTaskStartTime());
+                taskInfoVO.setPlanstartime(taskstarttime);
+            }
+            String taskendtime = null;
+            if (taskinfo.getTaskEndTime()!=null){
+                taskendtime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(taskinfo.getTaskEndTime());
+                taskInfoVO.setPlanendtime(taskendtime);
+            }
             taskInfoVO.setDistrisign(taskinfo.getDistributionFlag());
             taskInfoVO.setDatadistrisign(taskinfo.getTaskFlag());
             taskInfoVO.setAck(taskinfo.getAck());
@@ -88,6 +118,16 @@ public class TaskAssignmentService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        List<Earthinfo> earthinfos =  earthinfoMapper.queryEarthInfoByGroundId(bo.getGroundid());
+        if (earthinfos.size() <= 0) {
+           return -1;
+        }
+        List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.queryBySateOrConstID(bo.getSatelliteid(), null);
+        if (satelliteinfos.size()<=0){
+            return -2;
+        }
+
         Taskinfo taskinfo = new Taskinfo();
         taskinfo.setEarthUuid(bo.getGroundid());
         taskinfo.setSatelliteUuid(bo.getSatelliteid());
@@ -105,14 +145,27 @@ public class TaskAssignmentService {
     public Integer updateTask(QueryTaskBO bo) throws Exception {
 
         if (taskinfoMapper.selectByTaskId(bo.getTaskid()) == null){
-            throw new Exception("数据不存在！");
+            //throw new Exception("数据不存在！");
+            return -1;
         }
         Taskinfo taskinfo = new Taskinfo();
         taskinfo.setTaskUuid(bo.getTaskid());
         taskinfo.setSatelliteUuid(bo.getSatelliteid());
         taskinfo.setTaskType(bo.getTasktype());
-        Date startTime = bo.getPlanstarttime();
-        Date endTime = bo.getPlanstoptime();
+
+        Date startTime = null;
+        Date endTime = null;
+        try {
+            if (bo.getPlanstarttime() != null){
+                startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstarttime());
+
+            }
+            if (bo.getPlanstoptime() != null){
+                endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstoptime());
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         taskinfo.setPlanStartTime(startTime);
         taskinfo.setPlanEndTime(endTime);
         return taskinfoMapper.updateByTaskId(taskinfo);

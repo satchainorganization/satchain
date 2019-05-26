@@ -30,7 +30,7 @@ public class MonitorinfoController {
 
         int n = monitorinfoService.addMonitorInfo(monitorStation,monitorid,monitorUri);
         if (n<=0){
-            return Result.failure(ResponseCodeEnum.ERROR,"添加监视器失败！");
+            return Result.failure(ResponseCodeEnum.ERROR,"添加失败，监视器已存在！");
         }
         return Result.success();
     }
@@ -66,7 +66,7 @@ public class MonitorinfoController {
         Assert.notNull(monitorUri,"参数错误！");
         int n = monitorinfoService.updateMonitorInfo(monitorid,monitorStation,monitorUri);
         if (n<=0){
-            return Result.failure(ResponseCodeEnum.ERROR,"编辑监控器失败！");
+            return Result.failure(ResponseCodeEnum.ERROR,"编辑失败，监视器不存在！");
         }
         return Result.success();
     }
