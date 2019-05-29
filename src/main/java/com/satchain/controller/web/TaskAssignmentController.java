@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 任务分配表：增删改查
@@ -70,7 +72,10 @@ public class TaskAssignmentController {
         if (num == -2){
             return Result.failure(ResponseCodeEnum.ERROR,"卫星编号不存在！");
         }
-        return Result.success();
+
+        Map<String,Integer> map = new HashMap<>();
+        map.put("taskid",num);
+        return Result.success(map);
     }
 
     /**
@@ -100,8 +105,8 @@ public class TaskAssignmentController {
                              @RequestParam("distrisign") Integer distrisign) {
         Assert.notNull(taskid,"参数错误！");
         int num = taskAssignmentService.deleteTask(taskid,distrisign);
-        if(num == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"删除失败，数据不存在！");
+        if(num <= 0){
+            return Result.failure(ResponseCodeEnum.ERROR,"删除失败！");
         }
         return Result.success();
     }
@@ -111,13 +116,13 @@ public class TaskAssignmentController {
      * @return
      */
     @RequestMapping(value = "/taskPublish", method = RequestMethod.POST)
-    public Result taskPublish(@RequestParam("taskid") Integer taskid, @RequestParam("datadistrisign") Boolean datadistrisign) {
+    public Result taskPublish(@RequestParam("taskid") Integer taskid, @RequestParam("distrisign") Integer distrisign) {
         Assert.notNull(taskid,"任务编号不能为空！");
-        Assert.notNull(datadistrisign,"参数错误！");
-        Integer dataDistrisign = datadistrisign ? 1 : 0;
-        int num = taskAssignmentService.updateDistrisign(taskid,dataDistrisign);
-        if(num == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"发布任务失败，数据不存在！");
+        Assert.notNull(distrisign,"参数错误！");
+        //Integer dataDistrisign = distrisign ? 1 : 0;
+        int num = taskAssignmentService.updateDistrisign(taskid,distrisign);
+        if(num <= 0){
+            return Result.failure(ResponseCodeEnum.ERROR,"发布任务失败！");
         }
         return Result.success();
     }
@@ -129,9 +134,9 @@ public class TaskAssignmentController {
     @RequestMapping(value = "/cancelTask", method = RequestMethod.POST)
     public Result cancelTask(@RequestParam("taskid") Integer taskid) {
         Assert.notNull(taskid,"任务编号不能为空！");
-        int num = taskAssignmentService.updateDistrisign(taskid, TaskinfoDatadistrisignEnum.NOT_PUBLISH.getCode());
-        if(num == 0){
-            return Result.failure(ResponseCodeEnum.ERROR,"任务撤回失败，数据不存在！");
+        int num = taskAssignmentService.cancelDistrisgin(taskid, TaskinfoDatadistrisignEnum.NOT_PUBLISH.getCode());
+        if(num <= 0){
+            return Result.failure(ResponseCodeEnum.ERROR,"任务撤回失败！");
         }
         return Result.success();
     }

@@ -88,7 +88,7 @@ public class ConstellationinfoController {
                                       @RequestParam("constellationName") String constellationName){
         int n = constellationinfoService.deleteConstellationInfo(constellationId,constellationName);
         if (n<=0){
-            Result.failure(ResponseCodeEnum.ERROR,"新增卫星失败！");
+            Result.failure(ResponseCodeEnum.ERROR,"删除星座失败！");
         }
         return Result.success();
     }

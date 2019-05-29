@@ -178,18 +178,33 @@ public class TaskAssignmentService {
      * @return
      */
     public Integer deleteTask(Integer taskid,Integer distrisign){
-        return taskinfoMapper.deleteByTaskid(taskid,distrisign);
+        Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
+        if (taskinfo.getDistributionFlag() == 0){
+            return taskinfoMapper.deleteByTaskid(taskid,distrisign);
+        }
+        return 0;
     }
 
     /**
-     * 发布任务 + 撤回任务
+     * 发布任务
      * @param taskid
      * @param distrisign
      * @return
      */
     public Integer updateDistrisign(Integer taskid,Integer distrisign){
-      int c =  taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
-        return c;
+        Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
+        if (taskinfo.getDistributionFlag() == 0){
+            return taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
+        }
+        return 0;
+    }
+
+    public Integer cancelDistrisgin(Integer taskid,Integer distrisign){
+        Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
+        if (taskinfo.getDistributionFlag() == 2 && taskinfo.getTaskFlag() == false){
+            return taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
+        }
+        return 0;
     }
 
 

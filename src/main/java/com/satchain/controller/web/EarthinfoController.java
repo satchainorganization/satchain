@@ -66,11 +66,11 @@ public class EarthinfoController {
     /**
      * 26 更改地面站信息
      */
-    @RequestMapping(value = "/updateGroundStation", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateGroundStation", method = RequestMethod.POST)
     public Result updateGroundStation(Earthinfo bo) throws Exception {
         Assert.notNull(bo,"参数错误！");
         Assert.notNull(bo.getGroundId(),"参数错误！");
-        Assert.notNull(bo.getGroundName(),"参数错误！");
+        /* Assert.notNull(bo.getGroundName(),"参数错误！");
         Assert.notNull(bo.getGroundTelemetryFre(),"参数错误！");
         Assert.notNull(bo.getGroundTelemetryGain(),"参数错误！");
         Assert.notNull(bo.getGroundTelecontrolErp(),"参数错误！");
@@ -82,7 +82,7 @@ public class EarthinfoController {
         Assert.notNull(bo.getLon(),"参数错误！");
         Assert.notNull(bo.getLat(),"参数错误！");
         Assert.notNull(bo.getIp(),"参数错误！");
-        Assert.notNull(bo.getGroundType(),"参数错误！");
+        Assert.notNull(bo.getGroundType(),"参数错误！");*/
 
         int n = earthinfoService.updateEarthInfo(bo);
         if (n == 0){

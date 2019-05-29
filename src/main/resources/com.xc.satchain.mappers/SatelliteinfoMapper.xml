@@ -38,10 +38,10 @@
   </sql>
   <sql id="id_name_where">
     <where>
-      <if test="satelliteUuid != null" >
+      <if test="satelliteUuid != null and satelliteUuid !='' " >
         and 卫星编号 = #{satelliteUuid}
       </if>
-      <if test="satelliteName != null" >
+      <if test="satelliteName != null and satelliteName !='' " >
         and 卫星名称 = #{satelliteName}
       </if>
     </where>
