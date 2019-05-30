@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.satchain.dao.FieldDefineMapper" >
+  <resultMap id="BaseResultMap" type="com.satchain.bean.model.FieldDefine" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="字段名" property="fieldName" jdbcType="VARCHAR" />
+    <result column="数据类型" property="dataType" jdbcType="TINYINT" />
+    <result column="最小值" property="minData" jdbcType="DOUBLE" />
+    <result column="最大值" property="maxData" jdbcType="DOUBLE" />
+    <result column="单位" property="unit" jdbcType="VARCHAR" />
+    <result column="显示标志" property="showLable" jdbcType="TINYINT" />
+    <result column="设备名" property="deviceName" jdbcType="VARCHAR" />
+    <result column="卫星编号" property="moonNum" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, 字段名, 数据类型, 最小值, 最大值, 单位, 显示标志, 设备名, 卫星编号
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from 字段定义表
+    <where>
+      <if test="satelliteUuid != null" >
+        and 卫星编号 = #{satelliteUuid}
+      </if>
+      <if test="deviceName != null" >
+        and 设备名 = #{deviceName}
+      </if>
+    </where>
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from 字段定义表
+    where id = #{id}
+  </delete>
+
+  <insert id="insert" parameterType="com.satchain.bean.model.FieldDefine" >
+    insert into 字段定义表 (id, 字段名, 数据类型, 
+      最小值, 最大值, unit, 
+      show_lable, 设备名, 卫星编号
+      )
+    values (#{id}, #{fieldName}, #{dataType},
+      #{minData}, #{maxData}, #{unit},
+      #{showLable}, #{deviceName}, #{moonNum}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.satchain.bean.model.FieldDefine" >
+    insert into 字段定义表
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="fieldName != null" >
+        字段名,
+      </if>
+      <if test="dataType != null" >
+        数据类型,
+      </if>
+      <if test="minData != null" >
+        最小值,
+      </if>
+      <if test="maxData != null" >
+        最大值,
+      </if>
+      <if test="unit != null" >
+        单位,
+      </if>
+      <if test="showLable != null" >
+        显示标志,
+      </if>
+      <if test="deviceName != null" >
+        设备名,
+      </if>
+      <if test="moonNum != null" >
+        卫星编号,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="fieldName != null" >
+        #{fieldName},
+      </if>
+      <if test="dataType != null" >
+        #{dataType},
+      </if>
+      <if test="minData != null" >
+        #{minData},
+      </if>
+      <if test="maxData != null" >
+        #{maxData},
+      </if>
+      <if test="unit != null" >
+        #{unit},
+      </if>
+      <if test="showLable != null" >
+        #{showLable},
+      </if>
+      <if test="deviceName != null" >
+        #{deviceName},
+      </if>
+      <if test="moonNum != null" >
+        #{moonNum},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.satchain.bean.model.FieldDefine" >
+    update 字段定义表
+    <set >
+      <if test="fieldName != null" >
+        字段名 = #{fieldName},
+      </if>
+      <if test="dataType != null" >
+        数据类型 = #{dataType},
+      </if>
+      <if test="minData != null" >
+        最小值 = #{minData},
+      </if>
+      <if test="maxData != null" >
+        最大值 = #{maxData},
+      </if>
+      <if test="unit != null" >
+        单位 = #{unit},
+      </if>
+      <if test="showLable != null" >
+        show_lable = #{showLable},
+      </if>
+      <if test="deviceName != null" >
+        设备名 = #{deviceName},
+      </if>
+      <if test="moonNum != null" >
+        卫星编号 = #{moonNum},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.satchain.bean.model.FieldDefine" >
+    update 字段定义表
+    set 字段名 = #{fieldName},
+      数据类型 = #{dataType},
+      最小值 = #{minData},
+      最大值 = #{maxData},
+      单位 = #{unit},
+      显示标志 = #{showLable},
+      设备名 = #{deviceName},
+      卫星编号 = #{moonNum}
+    where id = #{id}
+  </update>
+</mapper>

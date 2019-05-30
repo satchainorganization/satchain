@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.satchain.dao.DeviceRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.satchain.bean.model.DeviceRelation" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="设备名" property="deviceName" jdbcType="VARCHAR" />
+    <result column="父设备名" property="deviceFartherName" jdbcType="VARCHAR" />
+    <result column="卫星编号" property="moonNum" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, 设备名, 父设备名, 卫星编号
+  </sql>
+
+  <select id="selectBySatelliteId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from 设备关系表
+    where 卫星编号 = #{satelliteUuid}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from 设备关系表
+    where id = #{id}
+  </delete>
+
+  <insert id="insert" parameterType="com.satchain.bean.model.DeviceRelation" >
+    insert into 设备关系表 (id, 设备名, 父设备名,
+      卫星编号)
+    values (#{id}, #{deviceName}, #{deviceFartherName},
+      #{moonNum})
+  </insert>
+  <insert id="insertSelective" parameterType="com.satchain.bean.model.DeviceRelation" >
+    insert into 设备关系表
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceName != null" >
+        设备名,
+      </if>
+      <if test="deviceFartherName != null" >
+        父设备名,
+      </if>
+      <if test="moonNum != null" >
+        卫星编号,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="deviceName != null" >
+        #{deviceName},
+      </if>
+      <if test="deviceFartherName != null" >
+        #{deviceFartherName},
+      </if>
+      <if test="moonNum != null" >
+        #{moonNum},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.satchain.bean.model.DeviceRelation" >
+    update 设备关系表
+    <set >
+      <if test="deviceName != null" >
+        设备名 = #{deviceName},
+      </if>
+      <if test="deviceFartherName != null" >
+        父设备名 = #{deviceFartherName},
+      </if>
+      <if test="moonNum != null" >
+        卫星编号 = #{moonNum},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.satchain.bean.model.DeviceRelation" >
+    update 设备关系表
+    set 设备名 = #{deviceName},
+      父设备名 = #{deviceFartherName},
+      卫星编号 = #{moonNum}
+    where id = #{id}
+  </update>
+</mapper>

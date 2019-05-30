@@ -134,7 +134,7 @@ public class TaskAssignmentController {
     @RequestMapping(value = "/cancelTask", method = RequestMethod.POST)
     public Result cancelTask(@RequestParam("taskid") Integer taskid) {
         Assert.notNull(taskid,"任务编号不能为空！");
-        int num = taskAssignmentService.cancelDistrisgin(taskid, TaskinfoDatadistrisignEnum.NOT_PUBLISH.getCode());
+        int num = taskAssignmentService.cancelDistrisgin(taskid, 3);
         if(num <= 0){
             return Result.failure(ResponseCodeEnum.ERROR,"任务撤回失败！");
         }
