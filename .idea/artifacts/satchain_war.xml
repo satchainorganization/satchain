@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="satchain:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="gjl.war">
+      <element id="artifact" artifact-name="satchain:war exploded" />
+    </root>
+  </artifact>
+</component>

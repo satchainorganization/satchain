@@ -116,11 +116,11 @@ public class TaskAssignmentController {
      * @return
      */
     @RequestMapping(value = "/taskPublish", method = RequestMethod.POST)
-    public Result taskPublish(@RequestParam("taskid") Integer taskid, @RequestParam("distrisign") Integer distrisign) {
+    public Result taskPublish(@RequestParam("taskid") Integer taskid) {
         Assert.notNull(taskid,"任务编号不能为空！");
-        Assert.notNull(distrisign,"参数错误！");
+        //Assert.notNull(distrisign,"参数错误！");
         //Integer dataDistrisign = distrisign ? 1 : 0;
-        int num = taskAssignmentService.updateDistrisign(taskid,distrisign);
+        int num = taskAssignmentService.updateDistrisign(taskid,TaskinfoDatadistrisignEnum.PUBLISHED.getCode());
         if(num <= 0){
             return Result.failure(ResponseCodeEnum.ERROR,"发布任务失败！");
         }

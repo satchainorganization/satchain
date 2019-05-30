@@ -1,7 +1,364 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="25fe9a25-40da-45ef-8876-942a8cd8e97a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/satchain_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/satchain_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_54.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_api_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/satchain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TaskAssignmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TaskAssignmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/satchain/service/TaskAssignmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/satchain/service/TaskAssignmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com.xc.satchain.mappers/ConstellationinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.xc.satchain.mappers/ConstellationinfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com.xc.satchain.mappers/SatelliteinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.xc.satchain.mappers/SatelliteinfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com.xc.satchain.mappers/TaskinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com.xc.satchain.mappers/TaskinfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/bo/AddTaskBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/bo/DataBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/bo/QueryTaskBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/bo/TeleControlContentBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Constellationinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Contentinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/DeviceRelation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/DeviceRelationExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/DeviceRelationExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/DeviceRelationExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/DeviceRelationExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Earthinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/FieldDefine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/FieldDefineExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/FieldDefineExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/FieldDefineExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/FieldDefineExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Loginfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Monitorinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Satelliteinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Taskinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/TelemetryData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/TelemetryDataExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/TelemetryDataExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/TelemetryDataExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/TelemetryDataExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/model/Userinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/ConstellationinfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/ContentInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/DataVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/EarthInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/FieldVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/LogInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/MonitorInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/PageVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/QueryTaskAssignmentVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/SatelliteInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/TaskInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/UserChangeVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/bean/vo/UserInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/constants/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/myEnum/ResponseCodeEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/myEnum/TaskinfoDatadistrisignEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/myEnum/UserRoleEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/result/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/FastJsonValueFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/FileUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/HandlerControllerException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/JSONUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/TimeConvertUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/TokenUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/commons/utils/WebUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/ConstellationinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/DataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/DeviceRelationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/EarthinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/FieldDefineController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/FileDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/LoginfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/MonitorinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/SatelliteinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/TaskAssignmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/TeleContentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/TeleDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/TelemetryDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/controller/web/UserinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/ConstellationinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/ContentinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/DeviceRelationMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/EarthinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/FieldDefineMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/LoginfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/MonitorinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/SatelliteinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/TaskinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/TelemetryDataMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/dao/UserinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/interceptor/TokenInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/ConstellationinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/DataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/DeviceRelationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/EarthinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/FieldDefineService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/LoginfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/MonitorinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/SatelliteinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/TaskAssignmentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/TaskinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/TeleContentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/TeleDataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/satchain/service/UserinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/ConstellationinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/ContentinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/DeviceRelationMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/EarthinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/FieldDefineMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/LoginfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/MonitorinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/SatelliteinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/TaskinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/TelemetryDataMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com.xc.satchain.mappers/UserinfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/bo/AddTaskBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/bo/DataBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/bo/QueryTaskBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/bo/TeleControlContentBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Constellationinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Contentinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/DeviceRelation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/DeviceRelationExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/DeviceRelationExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/DeviceRelationExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/DeviceRelationExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Earthinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/FieldDefine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/FieldDefineExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/FieldDefineExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/FieldDefineExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/FieldDefineExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Loginfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Monitorinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Satelliteinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Taskinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/TelemetryData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/TelemetryDataExample$Criteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/TelemetryDataExample$Criterion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/TelemetryDataExample$GeneratedCriteria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/TelemetryDataExample.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/model/Userinfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/ConstellationinfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/ContentInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/DataVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/EarthInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/FieldVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/LogInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/MonitorInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/PageVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/QueryTaskAssignmentVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/SatelliteInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/TaskInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/UserChangeVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/bean/vo/UserInfoVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/constants/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/myEnum/ResponseCodeEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/myEnum/TaskinfoDatadistrisignEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/myEnum/UserRoleEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/result/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/FastJsonValueFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/FileUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/HandlerControllerException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/JSONUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/TimeConvertUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/TokenUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/commons/utils/WebUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/ConstellationinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/DataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/DeviceRelationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/EarthinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/FieldDefineController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/FileDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/LoginfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/MonitorinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/SatelliteinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/TaskAssignmentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/TeleContentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/TeleDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/TelemetryDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/controller/web/UserinfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/ConstellationinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/ContentinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/DeviceRelationMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/EarthinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/FieldDefineMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/LoginfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/MonitorinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/SatelliteinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/TaskinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/TelemetryDataMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/dao/UserinfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/interceptor/TokenInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/ConstellationinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/DataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/DeviceRelationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/EarthinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/FieldDefineService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/LoginfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/MonitorinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/SatelliteinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/TaskAssignmentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/TaskinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/TeleContentService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/TeleDataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/com/satchain/service/UserinfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/log4j.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/mysql - 副本.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/spring/spring-dao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/classes/spring/spring-web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/c3p0-0.9.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/commons-fileupload-1.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/commons-io-2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/fastjson-1.2.54.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/jackson-annotations-2.9.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/jackson-core-2.9.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/jackson-databind-2.9.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/javax.annotation-api-1.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/logback-core-1.2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/mybatis-3.4.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/mybatis-spring-1.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/mysql-connector-java-5.1.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/slf4j-api-1.7.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/slf4j-log4j12-1.7.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-aop-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-beans-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-context-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-core-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-expression-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-jdbc-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-test-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-tx-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-web-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/spring-webmvc-4.1.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/lib/standard-1.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gjl/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="TaskAssignmentController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TaskAssignmentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="122" column="52" selection-start-line="122" selection-start-column="40" selection-end-line="122" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskinfoDatadistrisignEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/commons/myEnum/TaskinfoDatadistrisignEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="38" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskAssignmentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/service/TaskAssignmentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="202" column="11" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueryTaskBO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/bean/bo/QueryTaskBO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TaskAssignmentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/satchain/service/TaskAssignmentService.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -13,10 +370,104 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+              <item name="myEnum" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="satchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="satchain" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -64,8 +515,109 @@
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="25fe9a25-40da-45ef-8876-942a8cd8e97a" name="Default" comment="" />
+      <created>1559192551687</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559192551687</updated>
+      <workItem from="1559192553573" duration="728000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="728000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Web" side_tool="true" />
+      <window_info anchor="right" id="Database" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/bean/bo/QueryTaskBO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/text/SimpleDateFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="557" column="52" selection-start-line="557" selection-start-column="52" selection-end-line="557" selection-end-column="52" />
+          <folding>
+            <element signature="e#23443#23444#0" expanded="true" />
+            <element signature="e#23515#23516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/dao/TaskinfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/service/TaskAssignmentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="202" column="11" selection-start-line="202" selection-start-column="11" selection-end-line="202" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/commons/myEnum/TaskinfoDatadistrisignEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/satchain/controller/web/TaskAssignmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="122" column="52" selection-start-line="122" selection-start-column="40" selection-end-line="122" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

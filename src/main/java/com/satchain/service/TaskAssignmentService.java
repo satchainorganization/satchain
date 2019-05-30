@@ -199,6 +199,12 @@ public class TaskAssignmentService {
         return 0;
     }
 
+    /**
+     * 撤销任务
+     * @param taskid
+     * @param distrisign
+     * @return
+     */
     public Integer cancelDistrisgin(Integer taskid,Integer distrisign){
         Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
         if (taskinfo.getDistributionFlag() == 2 && taskinfo.getTaskFlag() == false){
