@@ -10,9 +10,9 @@ public class QueryTaskBO {
     private String satelliteid;//卫星编号
     private Integer tasktype;//任务类型：100:遥测 101:遥控 110:数据上行 111:数据下行
     private Integer distrisign;//0:未发布1：请求发布2:已发布3：请求撤回4:已撤回5:已执行
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String planstarttime;//任务开始时间
-    //@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String planstoptime;//任务结束时间
     /*private Integer pageNum;//当前页数
     private Integer pageSize;//每页显示条数*/

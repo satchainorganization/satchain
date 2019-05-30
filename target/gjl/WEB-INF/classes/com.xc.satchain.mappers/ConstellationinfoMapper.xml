@@ -27,10 +27,10 @@
   <delete id="deleteById" >
     delete from 星座信息表
     <where>
-      <if test="constellationUuid != null" >
+      <if test="constellationUuid != null and constellationUuid != ''" >
         and 星座编号 = #{constellationUuid}
       </if>
-      <if test="constellationName != null" >
+      <if test="constellationName != null and constellationName != ''" >
         and 星座名称 = #{constellationName}
       </if>
     </where>

@@ -6,11 +6,11 @@
     <result column="地面站编号" property="earthUuid" jdbcType="VARCHAR" />
     <result column="卫星编号" property="satelliteUuid" jdbcType="VARCHAR" />
     <result column="任务类型" property="taskType" jdbcType="TINYINT" />
-    <result column="任务发布时间" property="taskReleaseTime" jdbcType="DATE" />
-    <result column="计划开始时间" property="planStartTime" jdbcType="DATE" />
-    <result column="计划截止时间" property="planEndTime" jdbcType="DATE" />
-    <result column="任务开始时间" property="taskStartTime" jdbcType="DATE" />
-    <result column="任务结束时间" property="taskEndTime" jdbcType="DATE" />
+    <result column="任务发布时间" property="taskReleaseTime" jdbcType="TIMESTAMP" />
+    <result column="计划开始时间" property="planStartTime" jdbcType="TIMESTAMP" />
+    <result column="计划截止时间" property="planEndTime" jdbcType="TIMESTAMP" />
+    <result column="任务开始时间" property="taskStartTime" jdbcType="TIMESTAMP" />
+    <result column="任务结束时间" property="taskEndTime" jdbcType="TIMESTAMP" />
     <result column="分发标志" property="distributionFlag" jdbcType="TINYINT" />
     <result column="任务标志" property="taskFlag" jdbcType="BIT" />
     <result column="ACK" property="ack" jdbcType="BIGINT" />

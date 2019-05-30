@@ -11,6 +11,7 @@ import com.satchain.dao.SatelliteinfoMapper;
 import com.satchain.dao.TaskinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -40,10 +41,10 @@ public class TaskAssignmentService {
         Date endTime = null;
         try {
             if (bo.getPlanstarttime() != null){
-                startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstarttime());
+                startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(bo.getPlanstarttime());
             }
             if (bo.getPlanstoptime() != null){
-                endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstoptime());
+                endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(bo.getPlanstoptime());
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -56,11 +57,16 @@ public class TaskAssignmentService {
                 satId.add(sat.getSatelliteUuid());
             }
         }
-        if (bo.getSatelliteid()!=null){
+        if (bo.getSatelliteid()!=null && bo.getSatelliteid() != ""){
             satId.add(bo.getSatelliteid());
         }
 
-        List<Taskinfo> taskinfoList = taskinfoMapper.queryTaskInfoByTaskBO(satId,bo.getTasktype(),bo.getDistrisign(),startTime,endTime);
+        List<Taskinfo> taskinfoList = null;
+        if (StringUtils.isEmpty(bo.getSatelliteid()) && StringUtils.isEmpty(bo.getConstellationid())){
+            taskinfoList = taskinfoMapper.queryTaskInfoByTaskBO(null,bo.getTasktype(),bo.getDistrisign(),startTime,endTime);
+        }else{
+            taskinfoList = taskinfoMapper.queryTaskInfoByTaskBO(satId,bo.getTasktype(),bo.getDistrisign(),startTime,endTime);
+        }
 
         List<TaskInfoVO> taskInfoVOS = new ArrayList<>();
         for (Taskinfo taskinfo : taskinfoList){
@@ -113,8 +119,8 @@ public class TaskAssignmentService {
         Date startTime = null;
         Date endTime = null;
         try {
-            startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstarttime());
-            endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanendtime());
+            startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(bo.getPlanstarttime());
+            endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(bo.getPlanendtime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -134,7 +140,8 @@ public class TaskAssignmentService {
         taskinfo.setTaskType(bo.getTasktype());
         taskinfo.setPlanStartTime(startTime);
         taskinfo.setPlanEndTime(endTime);
-        return taskinfoMapper.insert(taskinfo);
+        taskinfoMapper.insert(taskinfo);
+        return taskinfo.getTaskUuid();
 
     }
 

@@ -86,6 +86,10 @@ public class ConstellationinfoController {
     @RequestMapping(value = "/deleteConstellation", method = RequestMethod.DELETE)
     public Result deleteConstellation(@RequestParam("constellationId") String constellationId,
                                       @RequestParam("constellationName") String constellationName){
+        if ((constellationId == null||constellationId=="")
+                && (constellationName == null||constellationName=="")){
+            return Result.failure(ResponseCodeEnum.ERROR,"输入信息为空，删除星座失败！");
+        }
         int n = constellationinfoService.deleteConstellationInfo(constellationId,constellationName);
         if (n<=0){
             Result.failure(ResponseCodeEnum.ERROR,"删除星座失败！");
