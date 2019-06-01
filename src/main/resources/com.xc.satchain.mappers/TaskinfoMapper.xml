@@ -172,7 +172,13 @@
   </update>
   <update id="updateFlagByTaskId">
     update 任务分配表
-    set 分发标志 = #{datadistrisign}
+    set
+    <if test="distributionFlag != null" >
+      分发标志 = #{datadistrisign},
+    </if>
+    <if test="taskReleaseTime != null and taskReleaseTime != ''" >
+      任务发布时间 = #{taskReleaseTime},
+    </if>
     where 任务编号 = #{taskid}
   </update>
 

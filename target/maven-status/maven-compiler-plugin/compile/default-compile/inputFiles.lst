@@ -55,6 +55,7 @@ D:\satchain_0529\satchain\src\main\java\com\satchain\interceptor\TokenIntercepto
 D:\satchain_0529\satchain\src\main\java\com\satchain\service\UserinfoService.java
 D:\satchain_0529\satchain\src\main\java\com\satchain\bean\vo\PageVO.java
 D:\satchain_0529\satchain\src\main\java\com\satchain\controller\web\DeviceRelationController.java
+D:\satchain_0529\satchain\src\main\java\com\satchain\service\TelemetryDataService.java
 D:\satchain_0529\satchain\src\main\java\com\satchain\bean\model\Contentinfo.java
 D:\satchain_0529\satchain\src\main\java\com\satchain\dao\ContentinfoMapper.java
 D:\satchain_0529\satchain\src\main\java\com\satchain\bean\vo\UserChangeVO.java

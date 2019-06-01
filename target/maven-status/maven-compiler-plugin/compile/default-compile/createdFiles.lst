@@ -76,6 +76,7 @@ com\satchain\controller\web\DataController.class
 com\satchain\bean\model\TelemetryDataExample$Criterion.class
 com\satchain\bean\vo\TaskInfoVO.class
 com\satchain\dao\LoginfoMapper.class
+com\satchain\service\TelemetryDataService.class
 com\satchain\controller\web\DeviceRelationController.class
 com\satchain\controller\web\SatelliteinfoController.class
 com\satchain\commons\myEnum\ResponseCodeEnum.class

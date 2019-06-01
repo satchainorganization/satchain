@@ -18,7 +18,9 @@ public interface TaskinfoMapper {
 
     int updateByTaskId(Taskinfo record);
 
-    int updateFlagByTaskId(@Param("taskid") Integer taskid, @Param("datadistrisign") Integer datadistrisign);
+    int updateFlagByTaskId(@Param("taskid") Integer taskid,
+                           @Param("datadistrisign") Integer datadistrisign,
+                           @Param("taskReleaseTime") Date taskReleaseTime);
 
     List<Taskinfo> queryTaskInfoByTaskBO(@Param("satelliteUuid") List<String> satelliteUuid,
                                          @Param("tasktype") Integer tasktype, @Param("distrisign") Integer distrisign,

@@ -200,8 +200,9 @@ public class TaskAssignmentService {
      */
     public Integer updateDistrisign(Integer taskid,Integer distrisign){
         Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
-        if (taskinfo.getDistributionFlag() == 0){
-            return taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
+        Date now = new Date();
+        if (taskinfo != null && taskinfo.getDistributionFlag() == 0){
+            return taskinfoMapper.updateFlagByTaskId(taskid,distrisign,now);
         }
         return 0;
     }
@@ -215,7 +216,7 @@ public class TaskAssignmentService {
     public Integer cancelDistrisgin(Integer taskid,Integer distrisign){
         Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
         if (taskinfo.getDistributionFlag() == 2 && taskinfo.getTaskFlag() == false){
-            return taskinfoMapper.updateFlagByTaskId(taskid,distrisign);
+            return taskinfoMapper.updateFlagByTaskId(taskid,distrisign,null);
         }
         return 0;
     }
