@@ -164,11 +164,11 @@ public class TaskAssignmentService {
         Date endTime = null;
         try {
             if (bo.getPlanstarttime() != null){
-                startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstarttime());
+                startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(bo.getPlanstarttime());
 
             }
             if (bo.getPlanstoptime() != null){
-                endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(bo.getPlanstoptime());
+                endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(bo.getPlanstoptime());
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -201,6 +201,13 @@ public class TaskAssignmentService {
     public Integer updateDistrisign(Integer taskid,Integer distrisign){
         Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskid);
         Date now = new Date();
+        /*String now = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
+        Date nowTime = null;
+        try {
+            nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(now);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
         if (taskinfo != null && taskinfo.getDistributionFlag() == 0){
             return taskinfoMapper.updateFlagByTaskId(taskid,distrisign,now);
         }

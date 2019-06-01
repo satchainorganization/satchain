@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface TelemetryDataMapper {
 
-    HashMap<String,Object> selectByTableName(@Param("tableName") String tableName);
+    List<HashMap<String,Object>> selectByTableName(@Param("tableName") String tableName);
 }

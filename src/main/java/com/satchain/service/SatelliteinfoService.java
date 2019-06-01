@@ -31,6 +31,7 @@ public class SatelliteinfoService {
             SatelliteInfoVO satelliteInfoVO = new SatelliteInfoVO();
             satelliteInfoVO.setSatelliteId(sat.getSatelliteUuid());
             satelliteInfoVO.setNasaId(sat.getNasaUuid());
+            satelliteInfoVO.setSatelliteName(sat.getSatelliteName());
             satelliteInfoVO.setConstellationId(sat.getConstellationType());
             satelliteInfoVO.setSatelliteType(sat.getSatelliteType());
             satelliteInfoVO.setTelemetryFre(sat.getTelemetryFrequency());

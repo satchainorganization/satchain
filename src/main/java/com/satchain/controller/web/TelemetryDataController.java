@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class TelemetryDataController {
@@ -23,7 +24,7 @@ public class TelemetryDataController {
                                 @RequestParam("deviceName") String deviceName){
         Assert.notNull(satelliteId,"id不能为空！");
         Assert.notNull(deviceName,"name不能为空！");
-        HashMap<String,Object> result = telemetryDataService.queryTeleData(satelliteId,deviceName);
+        List<HashMap<String,Object>> result = telemetryDataService.queryTeleData(satelliteId,deviceName);
         return Result.success(result);
     }
 

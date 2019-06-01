@@ -30,7 +30,7 @@
     <include refid="Base_Column_List" />
     from 地面站信息表
     <where>
-      <if test="groundId != null" >
+      <if test="groundId != null and groundId != ''" >
         and 地面站编号 = #{groundId}
       </if>
     </where>

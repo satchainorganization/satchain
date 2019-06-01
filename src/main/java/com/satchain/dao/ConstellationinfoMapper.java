@@ -23,4 +23,7 @@ public interface ConstellationinfoMapper {
     List<Constellationinfo> selectAll();
 
     int updateByIdSelective(Constellationinfo record);
+
+    List<Constellationinfo> selectByIdAndName(@Param("constellationUuid") String constellationUuid,
+                                        @Param("constellationName") String constellationName);
 }

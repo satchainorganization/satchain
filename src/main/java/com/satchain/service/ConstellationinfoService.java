@@ -83,6 +83,10 @@ public class ConstellationinfoService {
      * @return
      */
     public Integer deleteConstellationInfo(String constellationUuid,String constellationName) {
+        List<Constellationinfo> con = constellationinfoMapper.selectByIdAndName(constellationUuid,constellationName);
+        if (con.size()<=0){
+            return 0;
+        }
         int deleteResult = constellationinfoMapper.deleteById(constellationUuid,constellationName);
         return deleteResult;
     }

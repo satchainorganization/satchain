@@ -7,6 +7,7 @@ import com.satchain.service.ConstellationinfoService;
 import com.satchain.service.SatelliteinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,13 +87,13 @@ public class ConstellationinfoController {
     @RequestMapping(value = "/deleteConstellation", method = RequestMethod.DELETE)
     public Result deleteConstellation(@RequestParam("constellationId") String constellationId,
                                       @RequestParam("constellationName") String constellationName){
-        if ((constellationId == null||constellationId=="")
-                && (constellationName == null||constellationName=="")){
+        if (StringUtils.isEmpty(constellationId)
+                && StringUtils.isEmpty(constellationName)){
             return Result.failure(ResponseCodeEnum.ERROR,"输入信息为空，删除星座失败！");
         }
         int n = constellationinfoService.deleteConstellationInfo(constellationId,constellationName);
         if (n<=0){
-            Result.failure(ResponseCodeEnum.ERROR,"删除星座失败！");
+            return Result.failure(ResponseCodeEnum.ERROR,"星座信息不存在，删除星座失败！");
         }
         return Result.success();
     }
