@@ -37,6 +37,9 @@ public class TimeConvertUtil {
      * @return
      */
     public static String date2String(Date date) {
+        if (date == null){
+            return null;
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateStr = sdf.format(date);
         return dateStr;

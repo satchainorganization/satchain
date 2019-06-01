@@ -40,7 +40,7 @@ public class TeleContentController {
         Assert.notNull(bo.getTaskcontent(),"参数错误!");
 
         int res = teleContentService.insertTeleContent(bo);
-        if (res == 0){
+        if (res <= 0){
             return Result.failure(ResponseCodeEnum.ERROR,"遥控内容增加失败！");
         }
         return Result.success();
@@ -53,8 +53,8 @@ public class TeleContentController {
     @RequestMapping(value = "/queryTelecontrolContent", method = RequestMethod.POST)
     public Result queryTeleContent(@RequestParam("constellationid") String constellationid,
                                    @RequestParam("satelliteid") String satelliteid,
-                                   @RequestParam("beginTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date beginTime,
-                                   @RequestParam("endTime") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date endTime) {
+                                   @RequestParam("beginTime") /*String beginTime,*/@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date beginTime,
+                                   @RequestParam("endTime") /*String endTime*/@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date endTime) {
         List<ContentInfoVO> contentinfos = teleContentService.queryContentInfo(constellationid,satelliteid,beginTime,endTime);
         return Result.success(contentinfos);
     }

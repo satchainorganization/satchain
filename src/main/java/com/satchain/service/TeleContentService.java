@@ -12,6 +12,7 @@ import com.satchain.dao.TaskinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -63,11 +64,11 @@ public class TeleContentService {
      * @param satelliteid 卫星编号
      * 遥控内容查询
      */
-    public List<ContentInfoVO> queryContentInfo(String constellationId, String satelliteid,
+    public List<ContentInfoVO> queryContentInfo(String constellationid, String satelliteid,
                                                 Date begintime, Date endtime){
         List<ContentInfoVO> contentinfos = new ArrayList<>();
 
-        List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.queryBySateOrConstID(satelliteid,constellationId);
+        List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.queryBySateOrConstID(satelliteid,constellationid);
         for (Satelliteinfo sat : satelliteinfos){
             List<Taskinfo> taskinfos = taskinfoMapper.queryTaskInfoByidAndTime(sat.getSatelliteUuid(),begintime,endtime);
             for (Taskinfo taskinfo : taskinfos){
@@ -83,6 +84,7 @@ public class TeleContentService {
                 contentInfoVO.setTaskTime(TimeConvertUtil.date2String(time));
                 contentinfos.add(contentInfoVO);
             }
+            //System.out.print(contentinfos);
         }
         return contentinfos;
     }
