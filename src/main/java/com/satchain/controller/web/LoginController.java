@@ -59,7 +59,7 @@ public class LoginController {
             session.setAttribute(SESSION_USERNAME_KEY, username);
             session.setMaxInactiveInterval(30 * 60);
             map.put("token", token);
-            loginfoService.addLoginLog(username,LoginEnum.LOGIN_USER.getKey(),LoginEnum.EXIT_USER.getValue());
+            loginfoService.addLoginLog(username,LoginEnum.LOGIN_USER.getKey(),LoginEnum.LOGIN_USER.getValue());
             return Result.success(map);
         }else{
             return Result.failure(ResponseCodeEnum.ERROR,"系统错误，请稍后重试！");
