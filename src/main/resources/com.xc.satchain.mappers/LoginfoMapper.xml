@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="时间" property="time" jdbcType="TIMESTAMP" />
     <result column="对象" property="objects" jdbcType="VARCHAR" />
-    <result column="事件类型" property="eventType" jdbcType="TINYINT" />
+    <result column="事件类型" property="eventType" jdbcType="INTEGER" />
     <result column="参数" property="parameter" jdbcType="VARCHAR" />
     <result column="备注" property="comments" jdbcType="VARCHAR" />
   </resultMap>

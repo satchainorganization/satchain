@@ -1,7 +1,10 @@
 package com.satchain.service;
 
+import com.satchain.bean.model.FieldDefine;
+import com.satchain.bean.vo.FieldVO;
 import com.satchain.commons.constants.Constants;
 import com.satchain.commons.utils.FileUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,14 +20,23 @@ import java.util.*;
 @Service
 public class TeleDataService {
 
-    public List<String> teleDataDownload(Date startTime, Date endTime) {
-        ArrayList<File> fileList = getFiles(Constants.TELE_DATA_BASE_PATH);
+    @Autowired
+    private FieldDefineService fieldDefineService;
+
+    @Autowired
+    private TelemetryDataService telemetryDataService;
+
+    public List<String> teleDataDownload(String satellationId) {
+
+        List<FieldVO> fieldDefines = fieldDefineService.queryFieldByIdAndName(satellationId,null);
+        return null;
+        /*ArrayList<File> fileList = getFiles(Constants.TELE_DATA_BASE_PATH);
         ArrayList<File> downloadFileList = new ArrayList<>();
-        /*ArrayList<String> iconNameList = new ArrayList<String>();//返回文件名数组
+        *//*ArrayList<String> iconNameList = new ArrayList<String>();//返回文件名数组
         for(int i=0;i<fileList.size();i++){
             String curpath = fileList.get(i).getPath();//获取文件路径
             iconNameList.add(curpath.substring(curpath.lastIndexOf("\\")+1));//将文件名加入数组
-        }*/
+        }*//*
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         for(int i=0;i<fileList.size();i++){
@@ -34,16 +46,12 @@ public class TeleDataService {
             };
 
         }
-
-
-
-
         String path = Constants.TELE_DATA_BASE_PATH + startTime.getTime() + endTime.getTime();
         File file = new File(path);
         if (file.exists() && file.isDirectory() && file.list() != null) {
             return Arrays.asList(file.list());
         }
-        return new ArrayList<>();
+        return new ArrayList<>();*/
     }
 
     public boolean teleDataUpload(MultipartFile file) {

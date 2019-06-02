@@ -52,7 +52,6 @@ public class LoginController {
         if (pwd != null && !pwd.equals(password)) {
             return Result.failure(ResponseCodeEnum.ERROR, "密码错误！");
         } else if (pwd != null && pwd.equals(password)) {
-            loginfoService.addLoginLog(username,LoginEnum.LOGIN_USER.getKey(),LoginEnum.EXIT_USER.getValue());
             Map<String, Object> map = new HashMap<String, Object>();
             HttpSession session = request.getSession();
             String token = TokenUtil.genetateToken();
@@ -60,6 +59,7 @@ public class LoginController {
             session.setAttribute(SESSION_USERNAME_KEY, username);
             session.setMaxInactiveInterval(30 * 60);
             map.put("token", token);
+            loginfoService.addLoginLog(username,LoginEnum.LOGIN_USER.getKey(),LoginEnum.EXIT_USER.getValue());
             return Result.success(map);
         }else{
             return Result.failure(ResponseCodeEnum.ERROR,"系统错误，请稍后重试！");

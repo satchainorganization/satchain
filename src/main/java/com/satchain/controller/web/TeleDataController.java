@@ -22,10 +22,14 @@ public class TeleDataController {
     @Autowired
     private TeleDataService teleDataService;
 
+    /**
+     * 遥测数据导出
+     * @param satellationId
+     * @return
+     */
     @RequestMapping(value = "/teleDataDownload", method = RequestMethod.POST)
-    public Result teleDataDownload(@RequestParam("starttime") @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss") Date starttime,
-                                   @RequestParam("stoptime") @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss") Date stoptime) {
-        return Result.success(teleDataService.teleDataDownload(starttime, stoptime));
+    public Result teleDataDownload(@RequestParam("satellationId") String satellationId) {
+        return Result.success(teleDataService.teleDataDownload(satellationId));
     }
 
     @RequestMapping(value = "/teleDataUpload", method = RequestMethod.POST)
