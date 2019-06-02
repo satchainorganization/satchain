@@ -13,6 +13,12 @@ public interface Constants {
 
     // TODO: 2019/5/19 数据存储根目录
     String DATA_BASE_PATH = "/data/";
-
     String TELE_DATA_BASE_PATH = "/teledata/";
+
+    String JDBC_HOST = "127.0.0.1";
+    String JDBC_USER ="root";
+    String JDBC_PASSWORD = "";
+    String JDBC_EXPORTDATABASENAME = "satchain";
+    Integer JDBC_PORT = 3306;
+    String JDBC_EXPORTPATH = "e\\:\\mysql\\edu.sql";
 }

@@ -29,43 +29,36 @@ public class TeleDataService {
     public List<String> teleDataDownload(String satellationId) {
 
         List<FieldVO> fieldDefines = fieldDefineService.queryFieldByIdAndName(satellationId,null);
+        for (FieldVO field : fieldDefines){
+            //c:\>mysqldump -h localhost -u root -p mydb mytable>e:\mysql\mytable.sql
+            String command = new String("cmd /c mysqldump -u"+Constants.JDBC_USER+" -p"+
+                    Constants.JDBC_PASSWORD+" "+Constants.JDBC_EXPORTDATABASENAME+ " " + satellationId+field.getDeviceName() + " >"+Constants.JDBC_EXPORTPATH);
+            Runtime runtime = Runtime.getRuntime();
+            try {
+                //cmd /k在执行命令后不关掉命令行窗口  cmd /c在执行完命令行后关掉命令行窗口   \\表示转译符也可使用/替代，linux使用/
+                Process process = runtime.exec(command);
+            } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
         return null;
-        /*ArrayList<File> fileList = getFiles(Constants.TELE_DATA_BASE_PATH);
-        ArrayList<File> downloadFileList = new ArrayList<>();
-        *//*ArrayList<String> iconNameList = new ArrayList<String>();//返回文件名数组
-        for(int i=0;i<fileList.size();i++){
-            String curpath = fileList.get(i).getPath();//获取文件路径
-            iconNameList.add(curpath.substring(curpath.lastIndexOf("\\")+1));//将文件名加入数组
-        }*//*
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        for(int i=0;i<fileList.size();i++){
-            Long createTime= fileList.get(i).lastModified();
-            if(createTime >= startTime.getTime() && createTime <= endTime.getTime()){
-                downloadFileList.add(fileList.get(i));
-            };
-
-        }
-        String path = Constants.TELE_DATA_BASE_PATH + startTime.getTime() + endTime.getTime();
-        File file = new File(path);
-        if (file.exists() && file.isDirectory() && file.list() != null) {
-            return Arrays.asList(file.list());
-        }
-        return new ArrayList<>();*/
     }
 
-    public boolean teleDataUpload(MultipartFile file) {
+    public void teleDataUpload(MultipartFile file) {
 
-        File target = new File(Constants.TELE_DATA_BASE_PATH + FileUtil.getFileName(file.getOriginalFilename()));
-        if (!target.exists()) {
-            target.mkdirs();
-        }
+        String command = new String("cmd /k mysql"+" -h"+Constants.JDBC_HOST+" -u"+Constants.JDBC_USER
+        +" -p"+Constants.JDBC_PASSWORD+" "+Constants.JDBC_EXPORTDATABASENAME+" <"+Constants.JDBC_EXPORTPATH);
+
+        //执行命令行
+        Runtime runtime = Runtime.getRuntime();
         try {
-            file.transferTo(target);
-            return true;
+            //cmd /k在执行命令后不关掉命令行窗口  cmd /c在执行完命令行后关掉命令行窗口   \\表示转译符也可使用/替代，linux使用/
+            Process process = runtime.exec(command);
+            System.out.println("导入成功》》》》》》》》》》》》》》》");
         } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-            return false;
         }
     }
 

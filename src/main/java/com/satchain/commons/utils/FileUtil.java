@@ -1,8 +1,6 @@
 package com.satchain.commons.utils;
 
 /**
- * @author 董少飞
- * // TODO: 2019/5/19 dsf
  * @date 2019/5/19
  */
 public class FileUtil {
