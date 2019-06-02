@@ -77,7 +77,6 @@ public class LoginController {
             session.removeAttribute(SESSION_USERNAME_KEY);
             session.removeAttribute(SESSION_TOKEN_KEY);
         }
-
         return Result.success();
     }
 }

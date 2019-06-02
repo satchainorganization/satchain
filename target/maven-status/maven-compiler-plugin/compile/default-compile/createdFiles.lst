@@ -40,6 +40,7 @@ com\satchain\bean\vo\QueryTaskAssignmentVO.class
 com\satchain\bean\vo\PageVO.class
 com\satchain\controller\web\TeleContentController.class
 com\satchain\dao\ContentinfoMapper.class
+com\satchain\commons\myEnum\LoginEnum.class
 com\satchain\commons\utils\HandlerControllerException.class
 com\satchain\service\FieldDefineService.class
 com\satchain\bean\model\FieldDefineExample$Criteria.class
