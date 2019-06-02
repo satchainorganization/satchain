@@ -88,7 +88,7 @@ CREATE TABLE `系统日志表`(
 	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
 	`时间` DATETIME DEFAULT NULL,
 	`对象` VARCHAR(32),
-	`事件类型` INTEGER ,
+	`事件类型` TINYINT(4),
 	`参数` VARCHAR(32),
 	`备注` VARCHAR(64),
 	PRIMARY KEY(`id`)
