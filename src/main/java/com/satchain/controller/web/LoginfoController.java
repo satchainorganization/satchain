@@ -49,4 +49,6 @@ public class LoginfoController {
         }
         return Result.success();
     }
+
+    
 }

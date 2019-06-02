@@ -1,9 +1,11 @@
 package com.satchain.controller.web;
 
+import com.satchain.commons.myEnum.LoginEnum;
 import com.satchain.commons.myEnum.ResponseCodeEnum;
 import com.satchain.commons.result.Result;
 import com.satchain.commons.utils.TokenUtil;
 import com.satchain.service.LoginService;
+import com.satchain.service.LoginfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +31,8 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+    @Autowired
+    private LoginfoService loginfoService;
     /**
      * 登录验证
      * @param username
@@ -47,7 +52,7 @@ public class LoginController {
         if (pwd != null && !pwd.equals(password)) {
             return Result.failure(ResponseCodeEnum.ERROR, "密码错误！");
         } else if (pwd != null && pwd.equals(password)) {
-
+            loginfoService.addLoginLog(username,LoginEnum.LOGIN_USER.getKey(),LoginEnum.EXIT_USER.getValue());
             Map<String, Object> map = new HashMap<String, Object>();
             HttpSession session = request.getSession();
             String token = TokenUtil.genetateToken();
@@ -68,6 +73,7 @@ public class LoginController {
         HttpSession session = request.getSession();
         String sessionToken = (String) session.getAttribute(SESSION_TOKEN_KEY);
         if (token != null && token.equals(sessionToken)) {
+            loginfoService.addLoginLog(username, LoginEnum.EXIT_USER.getKey(), LoginEnum.EXIT_USER.getValue());
             session.removeAttribute(SESSION_USERNAME_KEY);
             session.removeAttribute(SESSION_TOKEN_KEY);
         }

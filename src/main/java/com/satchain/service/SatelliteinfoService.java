@@ -70,6 +70,7 @@ public class SatelliteinfoService {
         Satelliteinfo satelliteinfo = new Satelliteinfo();
         satelliteinfo.setSatelliteUuid(bo.getSatelliteId());
         satelliteinfo.setNasaUuid(bo.getNasaId());
+        satelliteinfo.setSatelliteName(bo.getSatelliteName());
         satelliteinfo.setConstellationType(bo.getConstellationId());
         satelliteinfo.setSatelliteType(bo.getSatelliteType());
         satelliteinfo.setTelemetryFrequency(bo.getTelemetryFre());

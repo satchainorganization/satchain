@@ -12,7 +12,7 @@ public class Loginfo {
 
     private String objects;//对象
 
-    private Byte eventType;//事件类型
+    private Integer eventType;//事件类型
 
     private String parameter;//参数
 
@@ -42,11 +42,11 @@ public class Loginfo {
         this.objects = objects;
     }
 
-    public Byte getEventType() {
+    public Integer getEventType() {
         return eventType;
     }
 
-    public void setEventType(Byte eventType) {
+    public void setEventType(Integer eventType) {
         this.eventType = eventType;
     }
 

@@ -22,10 +22,10 @@
     <include refid="Base_Column_List" />
     from 字段定义表
     <where>
-      <if test="satelliteUuid != null" >
+      <if test="satelliteUuid != null and satelliteUuid != ''" >
         and 卫星编号 = #{satelliteUuid}
       </if>
-      <if test="deviceName != null" >
+      <if test="deviceName != null and deviceName != ''" >
         and 设备名 = #{deviceName}
       </if>
     </where>
