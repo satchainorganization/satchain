@@ -177,6 +177,7 @@ public class TaskAssignmentService {
         }
         taskinfo.setPlanStartTime(startTime);
         taskinfo.setPlanEndTime(endTime);
+        taskinfo.setDistributionFlag(0);
         return taskinfoMapper.updateByTaskId(taskinfo);
     }
 
