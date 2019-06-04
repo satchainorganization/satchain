@@ -77,7 +77,7 @@ public class ConstellationinfoController {
 
         int n = constellationinfoService.addConstellationInfo(constellationId,constellationName,constellationType,constellationOwners);
         if (n <= 0){
-            Result.failure(ResponseCodeEnum.ERROR,"新增失败，星座已存在！");
+            return Result.failure(ResponseCodeEnum.ERROR,"新增失败，星座已存在！");
         }
         return Result.success();
     }

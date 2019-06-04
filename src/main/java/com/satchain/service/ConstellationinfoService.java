@@ -64,7 +64,7 @@ public class ConstellationinfoService {
      */
     public Integer addConstellationInfo(String constellationId,String constellationName,Integer constellationType, String constellationOwners) throws Exception {
         Constellationinfo con = constellationinfoMapper.selectById(constellationId);
-        if(con != null ) {
+        if(con != null  ) {
             return 0;
             //throw new Exception("添加失败，星座已经存在！");
         }
