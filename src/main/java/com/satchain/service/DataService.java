@@ -1,74 +1,90 @@
 package com.satchain.service;
 
-import com.satchain.bean.bo.DataBO;
+import com.satchain.bean.model.Satelliteinfo;
+import com.satchain.bean.model.Taskinfo;
 import com.satchain.bean.vo.DataVO;
 import com.satchain.commons.constants.Constants;
 import com.satchain.commons.utils.FileUtil;
+import com.satchain.dao.SatelliteinfoMapper;
+import com.satchain.dao.TaskinfoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-/**
- * @author 董少飞
- * // TODO: 2019/5/19 dsf
- * @date 2019/5/19
- */
 @Service
 public class DataService {
 
-    public String getPath(DataBO dataBO) {
+    @Autowired
+    private SatelliteinfoMapper satelliteinfoMapper;
+
+    @Autowired
+    private TaskinfoMapper taskinfoMapper;
+
+    public String getPath(Integer taskId) {
 
         StringBuilder pathBuilder = new StringBuilder();
-        if(dataBO.getTaskID() == null) {
-            return pathBuilder.toString();
-        }
-        pathBuilder.append(dataBO.getTaskID());
-        pathBuilder.append("/");
-        if(StringUtils.isEmpty(dataBO.getConstellationid())) {
-            return pathBuilder.toString();
-        }
-        pathBuilder.append(dataBO.getConstellationid());
-        pathBuilder.append("/");
-        if(StringUtils.isEmpty(dataBO.getSatelliteid())) {
-            return pathBuilder.toString();
-        }
-        pathBuilder.append(dataBO.getSatelliteid());
-        pathBuilder.append("/");
 
-        // TODO: 2019/5/19 时间如何处理
+        pathBuilder.append("/卫星星座运管系统/数据上行/");
+
+        Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskId);
+        String satelliteUuid = taskinfo.getSatelliteUuid();
+        List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.selectBySatelliteId(satelliteUuid, null);
+        String constellationType = satelliteinfos.get(0).getConstellationType();
+        pathBuilder.append(constellationType + "/" + satelliteUuid + "/" + taskId);
         return pathBuilder.toString();
     }
 
-    public List<DataVO> queryDownRecord(DataBO dataBO) {
+    /**
+     * 3.14 下行数据查询
+     * 3.16 上行数据查询
+     * @param constellationid
+     * @param satelliteid
+     * @param starttime
+     * @param endtime
+     * @return
+     */
+    public List<DataVO> queryDownRecord(String constellationid,String satelliteid,String starttime,String endtime) throws ParseException {
 
-        List<DataVO> dataVOList = new LinkedList<>();
-        String path = getPath(dataBO);
-
-        if("".equals(path)) {
-            File baseDir = new File(Constants.DATA_BASE_PATH);
-            File[] fileList = null;
-            if(!baseDir.exists() || !baseDir.isDirectory() ||
-                    (fileList = baseDir.listFiles()) == null) {
-                return dataVOList;
-            }
-
-            for(File file : fileList) {
-                DataVO dataVO = new DataVO(file.getPath(), getAllFilePath(file));
-                dataVOList.add(dataVO);
-            }
+        List<DataVO> dataVOList = new ArrayList<>();
+        List<Taskinfo> taskinfos = taskinfoMapper.queryBySatelliteId(satelliteid);
+        String path = Constants.DATA_BASE_PATH + "/卫星星座运管系统/数据上行/" + constellationid + "/" + satelliteid;
+        File baseDir = new File(path);
+        if(!baseDir.exists() || !baseDir.isDirectory() ||
+                baseDir.listFiles() == null) {
             return dataVOList;
         }
+        long startTime = 0;
+        long endTime = 0;
+        if (!StringUtils.isEmpty(starttime)){
+            startTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(starttime).getTime();
+        }
+        if (!StringUtils.isEmpty(endtime)){
+            endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(endtime).getTime();
+        }
+        for (Taskinfo taskinfo : taskinfos){
+            File file = new File(path+"/"+taskinfo.getTaskUuid());
 
-        File file = new File(Constants.DATA_BASE_PATH + path);
-        DataVO dataVO = new DataVO(dataBO.getTaskID().toString(), getAllFilePath(file));
-        dataVOList.add(dataVO);
+            if ((file.exists() && file.lastModified()>=startTime && file.lastModified()<=endTime) ||
+                    (file.exists() && endTime ==0 && file.lastModified() >= startTime)){
+                DataVO dataVO = new DataVO();
+                dataVO.setFileName(String.valueOf(taskinfo.getTaskUuid()));
+                SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+                String timeText=format.format(file.lastModified());
+                dataVO.setFileTime(timeText);
+                dataVO.setFileSize(file.length());
+                dataVO.setUrl(file.getPath());
+                dataVOList.add(dataVO);
+            }
+        }
         return dataVOList;
     }
 
@@ -95,12 +111,19 @@ public class DataService {
         return filesPath;
     }
 
-    public boolean uploadData(MultipartFile file, DataBO dataBO) {
+    /**
+     * 3。15 上传文件
+     * @param file
+     * @param taskId
+     * @return
+     */
+    public boolean uploadData(MultipartFile file, Integer taskId) {
 
+        String name = file.getName();
         String originalFilename = file.getOriginalFilename();
         String fileName = FileUtil.getFileName(originalFilename);
 
-        String path = getPath(dataBO);
+        String path = getPath(taskId);
         try {
             File target = new File(Constants.DATA_BASE_PATH + path + fileName);
             target.createNewFile();
@@ -113,8 +136,5 @@ public class DataService {
         }
     }
 
-    public List<DataVO> queryUpData(DataBO dataBO) {
 
-        return queryDownRecord(dataBO);
-    }
 }
