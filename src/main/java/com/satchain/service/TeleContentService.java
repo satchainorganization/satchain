@@ -12,7 +12,6 @@ import com.satchain.dao.TaskinfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,6 +37,8 @@ public class TeleContentService {
         taskinfo.setEarthUuid(bo.getGroundid());
         taskinfo.setSatelliteUuid(bo.getSatelliteid());
         taskinfo.setTaskType(bo.getTasktype());
+        taskinfo.setTaskFlag(false);
+        taskinfo.setDistributionFlag(0);
 
         Date startTime = bo.getPlanstarttime();
         Date endTime = bo.getPlanendtime();
