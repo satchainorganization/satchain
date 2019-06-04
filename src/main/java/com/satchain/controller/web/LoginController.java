@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,9 +72,9 @@ public class LoginController {
         HttpSession session = request.getSession();
         String sessionToken = (String) session.getAttribute(SESSION_TOKEN_KEY);
         if (token != null && token.equals(sessionToken)) {
-            loginfoService.addLoginLog(username, LoginEnum.EXIT_USER.getKey(), LoginEnum.EXIT_USER.getValue());
             session.removeAttribute(SESSION_USERNAME_KEY);
             session.removeAttribute(SESSION_TOKEN_KEY);
+            loginfoService.addLoginLog(username, LoginEnum.EXIT_USER.getKey(), LoginEnum.EXIT_USER.getValue());
         }
         return Result.success();
     }

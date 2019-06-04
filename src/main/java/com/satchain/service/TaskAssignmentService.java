@@ -140,6 +140,8 @@ public class TaskAssignmentService {
         taskinfo.setTaskType(bo.getTasktype());
         taskinfo.setPlanStartTime(startTime);
         taskinfo.setPlanEndTime(endTime);
+        taskinfo.setTaskFlag(false);
+        taskinfo.setDistributionFlag(0);
         taskinfoMapper.insert(taskinfo);
         return taskinfo.getTaskUuid();
 
