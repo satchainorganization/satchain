@@ -33,13 +33,13 @@ public class DataService {
 
         StringBuilder pathBuilder = new StringBuilder();
 
-        pathBuilder.append("/卫星星座运管系统/数据上行/");
+        pathBuilder.append("卫星星座运管系统\\数据上行\\");
 
         Taskinfo taskinfo = taskinfoMapper.selectByTaskId(taskId);
         String satelliteUuid = taskinfo.getSatelliteUuid();
         List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.selectBySatelliteId(satelliteUuid, null);
         String constellationType = satelliteinfos.get(0).getConstellationType();
-        pathBuilder.append(constellationType + "/" + satelliteUuid + "/" + taskId);
+        pathBuilder.append(constellationType + "\\" + satelliteUuid + "\\" + taskId);
         return pathBuilder.toString();
     }
 
@@ -56,7 +56,7 @@ public class DataService {
 
         List<DataVO> dataVOList = new ArrayList<>();
         List<Taskinfo> taskinfos = taskinfoMapper.queryBySatelliteId(satelliteid);
-        String path = Constants.DATA_BASE_PATH + "/卫星星座运管系统/数据上行/" + constellationid + "/" + satelliteid;
+        String path = Constants.DATA_BASE_PATH + "卫星星座运管系统\\数据上行\\" + constellationid + "\\" + satelliteid;
         File baseDir = new File(path);
         if(!baseDir.exists() || !baseDir.isDirectory() ||
                 baseDir.listFiles() == null) {
@@ -126,7 +126,10 @@ public class DataService {
         String path = getPath(taskId);
         try {
             File target = new File(Constants.DATA_BASE_PATH + path + fileName);
-            target.createNewFile();
+            if (!target.exists()){
+                target.mkdirs();
+            }
+            //target.createNewFile();
             file.transferTo(target);
             return true;
         } catch (IOException e) {

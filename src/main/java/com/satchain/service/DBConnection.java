@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.commons.dbcp.BasicDataSource;
+//import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -29,9 +29,9 @@ public class DBConnection {
     public Connection getConnection(String dataSource) throws Exception {
         if (this.connection == null || this.connection.isClosed()) {
 
-            WebApplicationContext ct = ContextLoader.getCurrentWebApplicationContext();
+            /*WebApplicationContext ct = ContextLoader.getCurrentWebApplicationContext();
             BasicDataSource datasource = (BasicDataSource) ct.getBean(dataSource);
-            this.connection = datasource.getConnection();
+            this.connection = datasource.getConnection();*/
         }
         return this.connection;
     }

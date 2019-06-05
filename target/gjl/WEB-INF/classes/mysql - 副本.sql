@@ -67,13 +67,11 @@ CREATE TABLE `任务分配表`(
 	`计划截止时间` DATETIME,
 	`任务开始时间` DATETIME,
 	`任务结束时间` DATETIME,
-	`分发标志` TINYINT(4),
-	`任务标志` TINYINT(1),
+	`分发标志` TINYINT,
+	`任务标志` TINYINT,
 	`ACK` BIGINT(20),
 	PRIMARY KEY(`任务编号`),
-	KEY `idx_task_uuid` (`任务编号`),
-	KEY `idx_ground_uuid` (`地面站编号`),
-	KEY `idx_satellite_uuid` (`卫星编号`)
+	KEY `idx_task_uuid` (`任务编号`)
 )ENGINE=INNODB DEFAULT CHARSET='utf8';
 
 CREATE TABLE `遥控内容表`(

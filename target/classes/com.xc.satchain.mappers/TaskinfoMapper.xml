@@ -75,7 +75,7 @@
     select
     <include refid="Base_Column_List" />
     from 任务分配表
-    where 卫星编号 = #{satelliteid}
+    where 卫星编号 = #{satelliteId}
   </select>
 
   <select id="queryTaskInfoByidAndTime" resultMap="BaseResultMap">

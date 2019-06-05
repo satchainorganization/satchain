@@ -73,9 +73,9 @@ com\satchain\bean\model\DeviceRelationExample$GeneratedCriteria.class
 com\satchain\bean\model\Loginfo.class
 com\satchain\bean\model\Earthinfo.class
 com\satchain\bean\model\Monitorinfo.class
-com\satchain\controller\web\DataController.class
 com\satchain\bean\model\TelemetryDataExample$Criterion.class
 com\satchain\bean\vo\TaskInfoVO.class
+com\satchain\service\DBConnection.class
 com\satchain\dao\LoginfoMapper.class
 com\satchain\service\TelemetryDataService.class
 com\satchain\controller\web\DeviceRelationController.class
