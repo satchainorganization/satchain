@@ -28,5 +28,5 @@ public interface TaskinfoMapper {
     List<Taskinfo> queryTaskInfoByidAndTime(@Param("satelliteUuid") String satelliteUuid,
                                             @Param("starttime") Date starttime, @Param("stoptime") Date stoptime);
 
-    List<Taskinfo> queryBySatelliteId(@Param("satelliteUuid") String satelliteUuid);
+    List<Taskinfo> queryBySatelliteId(@Param("satelliteId") String satelliteId);
 }
