@@ -39,7 +39,7 @@ public class DataService {
         String satelliteUuid = taskinfo.getSatelliteUuid();
         List<Satelliteinfo> satelliteinfos = satelliteinfoMapper.selectBySatelliteId(satelliteUuid, null);
         String constellationType = satelliteinfos.get(0).getConstellationType();
-        pathBuilder.append(constellationType + "\\" + satelliteUuid + "\\" + taskId);
+        pathBuilder.append(constellationType + "\\" + satelliteUuid + "\\" + taskId + "\\");
         return pathBuilder.toString();
     }
 
@@ -71,7 +71,7 @@ public class DataService {
             endTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(endtime).getTime();
         }
         for (Taskinfo taskinfo : taskinfos){
-            File file = new File(path+"/"+taskinfo.getTaskUuid());
+            File file = new File(path+"\\"+taskinfo.getTaskUuid());
 
             if ((file.exists() && file.lastModified()>=startTime && file.lastModified()<=endTime) ||
                     (file.exists() && endTime ==0 && file.lastModified() >= startTime)){
