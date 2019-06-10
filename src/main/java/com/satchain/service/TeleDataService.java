@@ -58,7 +58,7 @@ public class TeleDataService {
         +" -p"+Constants.JDBC_PASSWORD+" "+Constants.JDBC_EXPORTDATABASENAME+" <"+Constants.JDBC_EXPORTPATH);*/
         /*String command = new String("cmd /c mysql"+" -h "+Constants.JDBC_HOST+" -u "+Constants.JDBC_USER
                 +" -p "+Constants.JDBC_PASSWORD+" "+" -D satellite"+" <"+Constants.JDBC_EXPORTPATH);*/
-        String command = new String("cmd /k mysql -h localhost -u root -p 123456 satellite < c:\\mysql\\edu.sql");
+        String command = new String("cmd /k mysql -h localhost -u root -p 123456 -D satellite < c:\\mysql\\edu.sql");
 
         //String command = new String("cmd /c mysql -h " + Constants.JDBC_HOST + " -u "+Constants.JDBC_USER
                 //+ " -p " + Constants.JDBC_PASSWORD + " -D satellite" + " < "+Constants.JDBC_EXPORTPATH);

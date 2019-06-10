@@ -37,7 +37,7 @@ public class FileDataController {
         Assert.notNull(constellationid,"参数不能为空");
         Assert.notNull(satelliteid,"参数不能为空");
 
-        return Result.success(dataService.queryDownRecord(constellationid,satelliteid,starttime,endtime));
+        return Result.success(dataService.queryUpRecord(constellationid,satelliteid,starttime,endtime,"卫星星座运管系统\\数据下行"));
     }
 
     /**
@@ -71,10 +71,10 @@ public class FileDataController {
                                 @RequestParam("starttime") String starttime,
                                 @RequestParam("endtime") String endtime) throws ParseException {
 
-        Assert.notNull(constellationid,"参数不能为空");
-        Assert.notNull(satelliteid,"参数不能为空");
+        //Assert.notNull(constellationid,"参数不能为空");
+        //Assert.notNull(satelliteid,"参数不能为空");
 
-        return Result.success(dataService.queryUpRecord(constellationid,satelliteid,starttime,endtime));
+        return Result.success(dataService.queryUpRecord(constellationid,satelliteid,starttime,endtime,"卫星星座运管系统\\数据上行"));
     }
 
 
