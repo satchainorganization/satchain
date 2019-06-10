@@ -9,10 +9,10 @@ public interface Constants {
     String DATA_BASE_PATH = "e:\\";
     String TELE_DATA_BASE_PATH = "/teledata/";
 
-    String JDBC_HOST = "127.0.0.1";
+    String JDBC_HOST = "localhost";
     String JDBC_USER ="root";
-    String JDBC_PASSWORD = "";
-    String JDBC_EXPORTDATABASENAME = "satchain";
+    String JDBC_PASSWORD = "123456";
+    String JDBC_EXPORTDATABASENAME = "satchain_new";
     Integer JDBC_PORT = 3306;
-    String JDBC_EXPORTPATH = "e\\:\\mysql\\edu.sql";
+    String JDBC_EXPORTPATH = "c:\\mysql\\edu.sql";
 }

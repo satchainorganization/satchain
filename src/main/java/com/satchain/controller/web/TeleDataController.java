@@ -46,8 +46,8 @@ public class TeleDataController {
      * @return
      */
     @RequestMapping(value = "/teleDataUpload", method = RequestMethod.POST)
-    public Result teleDataUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request){
-        String fileName="";
+    public Result teleDataUpload(@RequestParam("file") MultipartFile file , HttpServletRequest request){
+        /*String fileName="";
         String filePath="";
         Connection connection =null;
         ScriptRunner runner =null;
@@ -67,19 +67,19 @@ public class TeleDataController {
             e.printStackTrace();
         }finally {
             DBConnection.closeConnection(connection);
-        }
+        }*/
+        teleDataService.teleDataUpload();
         return Result.success();
     }
 
     /**
      * 3.39 teleDateDelete遥测数据删除
-     * @param starttime
-     * @param stoptime
+     * @param satellationId
      * @return
      */
     @RequestMapping(value = "/teleDateDelete",method = RequestMethod.DELETE)
-    public Result teleDateDelete(@RequestParam("starttime") String starttime,
-                                 @RequestParam("stoptime") String stoptime){
+    public Result teleDateDelete(@RequestParam("satellationId") String satellationId){
+        teleDataService.teleDataDelete(satellationId);
         return Result.success();
     }
 }

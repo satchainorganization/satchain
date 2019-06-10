@@ -74,7 +74,7 @@ public class FileDataController {
         Assert.notNull(constellationid,"参数不能为空");
         Assert.notNull(satelliteid,"参数不能为空");
 
-        return Result.success(dataService.queryDownRecord(constellationid,satelliteid,starttime,endtime));
+        return Result.success(dataService.queryUpRecord(constellationid,satelliteid,starttime,endtime));
     }
 
 
