@@ -88,6 +88,9 @@ public class DataService {
                             if ((file2.exists() && file2.lastModified()>=startTime && file2.lastModified()<=endTime) ||
                                     (file2.exists() && endTime ==0 && file2.lastModified() >= startTime)){
                                 DataVO dataVO = new DataVO();
+                                String absolutePath = file2.getAbsolutePath();
+                                String[] temp = absolutePath.split("\\\\");
+                                dataVO.setTaskId(Integer.valueOf(temp[temp.length-2]));
                                 dataVO.setFileName(String.valueOf(taskinfo.getTaskUuid()));
                                 SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                                 String timeText=format.format(file2.lastModified());
@@ -146,12 +149,14 @@ public class DataService {
                                 if ((file2.exists() && file2.lastModified() >= startTime && file2.lastModified() <= endTime) ||
                                         (file2.exists() && endTime == 0 && file2.lastModified() >= startTime)) {
                                     DataVO dataVO = new DataVO();
+                                    String absolutePath = file2.getAbsolutePath();
+                                    String[] temp = absolutePath.split("\\\\");
+                                    dataVO.setTaskId(Integer.valueOf(temp[temp.length-2]));
                                     dataVO.setFileName(file2.getName());
                                     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                                     String timeText = format.format(file2.lastModified());
                                     dataVO.setFileTime(timeText);
-                                    if (file2.length() < 1024)
-                                        dataVO.setFileSize(file2.length());
+                                    dataVO.setFileSize(file2.length());
                                     dataVO.setUrl(file2.getPath());
                                     dataVOList.add(dataVO);
                                 }
@@ -195,12 +200,14 @@ public class DataService {
                                     if ((file2.exists() && file2.lastModified()>=startTime && file2.lastModified()<=endTime) ||
                                             (file2.exists() && endTime ==0 && file2.lastModified() >= startTime)){
                                         DataVO dataVO = new DataVO();
+                                        String absolutePath = file2.getAbsolutePath();
+                                        String[] temp = absolutePath.split("\\\\");
+                                        dataVO.setTaskId(Integer.valueOf(temp[temp.length-2]));
                                         dataVO.setFileName(file2.getName());
                                         SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                                         String timeText=format.format(file2.lastModified());
                                         dataVO.setFileTime(timeText);
-                                        if (file2.length() < 1024)
-                                            dataVO.setFileSize(file2.length());
+                                        dataVO.setFileSize(file2.length());
                                         dataVO.setUrl(file2.getPath());
                                         dataVOList.add(dataVO);
                                     }
@@ -250,12 +257,14 @@ public class DataService {
                                     if ((task.exists() && task.lastModified()>=startTime && task.lastModified()<=endTime) ||
                                             (task.exists() && endTime ==0 && task.lastModified() >= startTime)){
                                         DataVO dataVO = new DataVO();
+                                        String absolutePath = file2.getAbsolutePath();
+                                        String[] temp = absolutePath.split("\\\\");
+                                        dataVO.setTaskId(Integer.valueOf(temp[temp.length-2]));
                                         dataVO.setFileName(task.getName());
                                         SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                                         String timeText=format.format(task.lastModified());
                                         dataVO.setFileTime(timeText);
-                                        if (task.length() < 1024)
-                                            dataVO.setFileSize(task.length());
+                                        dataVO.setFileSize(task.length());
                                         dataVO.setUrl(task.getAbsolutePath());
                                         dataVOList.add(dataVO);
                                     }
@@ -308,12 +317,14 @@ public class DataService {
                                         if ((file2.exists() && file2.lastModified()>=startTime && file2.lastModified()<=endTime) ||
                                                 (file2.exists() && endTime ==0 && file2.lastModified() >= startTime)){
                                             DataVO dataVO = new DataVO();
+                                            String absolutePath = file2.getAbsolutePath();
+                                            String[] temp = absolutePath.split("\\\\");
+                                            dataVO.setTaskId(Integer.valueOf(temp[temp.length-2]));
                                             dataVO.setFileName(file2.getName());
                                             SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
                                             String timeText=format.format(file2.lastModified());
                                             dataVO.setFileTime(timeText);
-                                            if (file2.length() < 1024)
-                                                dataVO.setFileSize(file2.length());
+                                            dataVO.setFileSize(file2.length());
                                             dataVO.setUrl(file2.getPath());
                                             dataVOList.add(dataVO);
                                         }
