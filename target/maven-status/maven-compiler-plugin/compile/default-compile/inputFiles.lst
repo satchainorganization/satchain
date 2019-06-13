@@ -1,6 +1,7 @@
 D:\satchain0605\satchain\src\main\java\com\satchain\bean\bo\DataBO.java
 D:\satchain0605\satchain\src\main\java\com\satchain\commons\utils\HandlerControllerException.java
 D:\satchain0605\satchain\src\main\java\com\satchain\commons\utils\WebUtils.java
+D:\satchain0605\satchain\src\main\java\com\satchain\dao\TeleDataMapper.java
 D:\satchain0605\satchain\src\main\java\com\satchain\service\DataService.java
 D:\satchain0605\satchain\src\main\java\com\satchain\bean\model\Satelliteinfo.java
 D:\satchain0605\satchain\src\main\java\com\satchain\commons\constants\Constants.java

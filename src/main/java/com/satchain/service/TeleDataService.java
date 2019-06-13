@@ -4,6 +4,7 @@ import com.satchain.bean.model.FieldDefine;
 import com.satchain.bean.vo.FieldVO;
 import com.satchain.commons.constants.Constants;
 import com.satchain.commons.utils.FileUtil;
+import com.satchain.dao.TeleDataMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +29,9 @@ public class TeleDataService {
 
     @Autowired
     private TelemetryDataService telemetryDataService;
+
+    @Autowired
+    private TeleDataMapper teleDataMapper;
 
     public List<String> teleDataDownload(String satellationId) {
 
@@ -95,26 +99,8 @@ public class TeleDataService {
     public void teleDataDelete(String satellationId) {
         List<FieldVO> fieldDefines = fieldDefineService.queryFieldByIdAndName(satellationId,null);
         for (FieldVO field : fieldDefines){
-            try {
-                 Class.forName("com.mysql.jdbc.Driver");//加载数据库驱动
-                 System.out.println("加载数据库驱动成功");
-                 String url="jdbc:mysql://localhost:3306/satchain_new";//声明自己的数据库test的url
-                 String user="root";//声明自己的数据库账号
-                 String password="123456";//声明自己的数据库密码
-                 //建立数据库连接，获得连接对象conn
-                 Connection conn= DriverManager.getConnection(url,user,password);
-                 System.out.println("连接数据库成功");
-                 //String sql="delete from" + satellationId + field.getDeviceName();//生成一条sql语句
-                 String sql = "DROP TABLE IF EXISTS `地面站信息表`;";
-                 //String sql = "delete from `用户信息表` where 用户名=gelijing";
-                 Statement stmt=conn.createStatement();//创建Statement对象
-                 stmt.executeUpdate(sql);//执行sql语句
-                 System.out.println("数据库删除成功");
-                 conn.close();
-                 System.out.println("数据库关闭成功");//关闭数据库的连接
-             } catch (Exception e) {
-                 e.printStackTrace();
-             }
+            //teleDataMapper.dropTable(satellationId+field.getDeviceName());
+            teleDataMapper.dropTable("星座信息表");
         }
     }
 }
