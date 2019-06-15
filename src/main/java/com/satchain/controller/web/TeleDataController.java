@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.util.Date;
@@ -46,29 +47,8 @@ public class TeleDataController {
      * @return
      */
     @RequestMapping(value = "/teleDataUpload", method = RequestMethod.POST)
-    public Result teleDataUpload(@RequestParam("file") MultipartFile file , HttpServletRequest request){
-        /*String fileName="";
-        String filePath="";
-        Connection connection =null;
-        ScriptRunner runner =null;
-        String path = request.getSession().getServletContext().getRealPath("path");
-        //上传脚本文件
-        //fileName =  FileUtil.uploadFileSQL(file,request,path);
-        fileName = FileUtil.getFileName(path);
-        filePath = path+ File.separator+fileName;//上传文件的真实路径
-        try{
-            //获取指定数据源连接
-            connection = DBConnection.getInstance().getConnection("dataSource8");
-            runner = new ScriptRunner(connection);
-            runner.setErrorLogWriter(null);
-            runner.setLogWriter(null);
-            runner.runScript(new InputStreamReader(new FileInputStream(filePath),"UTF-8"));
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally {
-            DBConnection.closeConnection(connection);
-        }*/
-        teleDataService.teleDataUpload();
+    public Result teleDataUpload(@RequestParam("file") MultipartFile file , HttpServletRequest request) throws IOException {
+        teleDataService.teleDataUpload(file);
         return Result.success();
     }
 

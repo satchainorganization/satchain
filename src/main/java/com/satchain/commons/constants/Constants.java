@@ -12,7 +12,7 @@ public interface Constants {
     String JDBC_HOST = "localhost";
     String JDBC_USER ="root";
     String JDBC_PASSWORD = "123456";
-    String JDBC_EXPORTDATABASENAME = "satchain_new";
+    String JDBC_EXPORTDATABASENAME = "satellite";
     Integer JDBC_PORT = 3306;
     String JDBC_EXPORTPATH = "c:\\mysql\\edu.sql";
 }

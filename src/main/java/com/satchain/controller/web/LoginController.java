@@ -7,10 +7,7 @@ import com.satchain.commons.utils.TokenUtil;
 import com.satchain.service.LoginService;
 import com.satchain.service.LoginfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -39,6 +36,7 @@ public class LoginController {
      * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
     public Result login(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletRequest request) {
 
         if (username == "" || username == null || password == "" || password == null) {
