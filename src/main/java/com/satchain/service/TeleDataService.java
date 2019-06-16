@@ -39,7 +39,7 @@ public class TeleDataService {
     public Integer teleDataDownload(String satellationId) {
 
         List<FieldVO> fieldDefines = fieldDefineService.queryFieldByIdAndName(satellationId,null);
-        if (fieldDefines == null || fieldDefines.size()>0){
+        if (fieldDefines == null || fieldDefines.size() <= 0){
             return -1;
         }
         for (FieldVO field : fieldDefines){
