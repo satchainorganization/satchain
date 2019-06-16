@@ -72,6 +72,7 @@ D:\satchain0605\satchain\src\main\java\com\satchain\service\UserinfoService.java
 D:\satchain0605\satchain\src\main\java\com\satchain\bean\vo\FieldVO.java
 D:\satchain0605\satchain\src\main\java\com\satchain\controller\web\TeleDataController.java
 D:\satchain0605\satchain\src\main\java\com\satchain\bean\vo\QueryTaskAssignmentVO.java
+D:\satchain0605\satchain\src\main\java\com\satchain\bean\bo\UserNameVO.java
 D:\satchain0605\satchain\src\main\java\com\satchain\bean\model\Monitorinfo.java
 D:\satchain0605\satchain\src\main\java\com\satchain\service\FieldDefineService.java
 D:\satchain0605\satchain\src\main\java\com\satchain\service\TaskAssignmentService.java

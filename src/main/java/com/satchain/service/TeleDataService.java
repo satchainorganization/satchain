@@ -36,9 +36,12 @@ public class TeleDataService {
     @Autowired
     private TeleDataMapper teleDataMapper;
 
-    public List<String> teleDataDownload(String satellationId) {
+    public Integer teleDataDownload(String satellationId) {
 
         List<FieldVO> fieldDefines = fieldDefineService.queryFieldByIdAndName(satellationId,null);
+        if (fieldDefines == null || fieldDefines.size()>0){
+            return -1;
+        }
         for (FieldVO field : fieldDefines){
             //mysqldump -h localhost -u root -p satchain_new 字段定义表>c:\mysql\mytable.sql
             //String command = new String("cmd /c mysqldump -h localhost -u"+Constants.JDBC_USER+" -p"+
@@ -54,7 +57,7 @@ public class TeleDataService {
                 e.printStackTrace();
             }
         }
-        return null;
+        return 0;
     }
 
     public void teleDataUpload(MultipartFile file) throws IOException {

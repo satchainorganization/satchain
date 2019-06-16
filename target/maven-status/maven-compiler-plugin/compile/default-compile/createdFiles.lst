@@ -22,6 +22,7 @@ com\satchain\commons\utils\FastJsonValueFilter.class
 com\satchain\bean\bo\DataBO.class
 com\satchain\dao\UserinfoMapper.class
 com\satchain\dao\TelemetryDataMapper.class
+com\satchain\bean\bo\UserNameVO.class
 com\satchain\bean\model\Satelliteinfo.class
 com\satchain\bean\model\TelemetryDataExample$Criteria.class
 com\satchain\controller\web\LoginfoController.class

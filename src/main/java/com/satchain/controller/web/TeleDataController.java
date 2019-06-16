@@ -38,7 +38,11 @@ public class TeleDataController {
      */
     @RequestMapping(value = "/teleDataDownload", method = RequestMethod.POST)
     public Result teleDataDownload(@RequestParam("satellationId") String satellationId) {
-        return Result.success(teleDataService.teleDataDownload(satellationId));
+        int result = teleDataService.teleDataDownload(satellationId);
+        if (result == -1){
+            return Result.failure(ResponseCodeEnum.ERROR,"数据库中不存在该表！");
+        }
+        return Result.success();
     }
 
     /**
