@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -36,7 +34,7 @@ public class TeleDataService {
     @Autowired
     private TeleDataMapper teleDataMapper;
 
-    public Integer teleDataDownload(String satellationId) {
+    public Integer teleDataDownload(String satellationId, HttpServletResponse response) {
 
         List<FieldVO> fieldDefines = fieldDefineService.queryFieldByIdAndName(satellationId,null);
         if (fieldDefines == null || fieldDefines.size() <= 0){
@@ -44,18 +42,34 @@ public class TeleDataService {
         }
         for (FieldVO field : fieldDefines){
             //mysqldump -h localhost -u root -p satchain_new 字段定义表>c:\mysql\mytable.sql
-            //String command = new String("cmd /c mysqldump -h localhost -u"+Constants.JDBC_USER+" -p"+
-                    //Constants.JDBC_PASSWORD+" --databases "+Constants.JDBC_EXPORTDATABASENAME+ " --tables " +"用户信息表 > c:\\mysql\\mytable.sql");
             String command = new String("cmd /c mysqldump -h localhost -u"+Constants.JDBC_USER+" -p"+
-                    Constants.JDBC_PASSWORD+" --databases "+Constants.JDBC_EXPORTDATABASENAME+ " --tables " + satellationId+field.getDeviceName() + " >"+Constants.JDBC_EXPORTPATH);
+                    Constants.JDBC_PASSWORD+" --databases satchain_new --tables "+ satellationId + field.getDeviceName() + " > c:\\mysql\\mytable.sql");
+            //String command = new String("cmd /c mysqldump -h localhost -u"+Constants.JDBC_USER+" -p"+
+                    //Constants.JDBC_PASSWORD+" --databases "+Constants.JDBC_EXPORTDATABASENAME+ " --tables 2324" + " > c:\\mysql\\mytable.sql");
 
             Runtime runtime = Runtime.getRuntime();
             try {
                 //cmd /k在执行命令后不关掉命令行窗口  cmd /c在执行完命令行后关掉命令行窗口   \\表示转译符也可使用/替代，linux使用/
                 Process process = runtime.exec(command);
+                new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+                String fileName = "c:\\mysql\\mytable.sql";
+                InputStream bis = new BufferedInputStream(new FileInputStream(new File(fileName)));
+                response.addHeader("Content-Disposition", "attachment;filename=" + fileName);
+                response.setContentType("multipart/form-data");
+                BufferedOutputStream out = new BufferedOutputStream(response.getOutputStream());
+                //boolean var13 = false;
+
+                int len;
+                while((len = bis.read()) != -1) {
+                    out.write(len);
+                    out.flush();
+                }
+                out.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
         return 0;
     }
@@ -77,7 +91,7 @@ public class TeleDataService {
             file.transferTo(target);
             Runtime runtime = Runtime.getRuntime();
             //mysql -h localhost -u root -p123456 -D satellite < c:\mysql\edu.sql
-            String command = "cmd /c mysql -uroot -p123456 -D " + Constants.JDBC_EXPORTDATABASENAME + "<" + Constants.DATA_BASE_PATH + originalFilename;
+            String command = "cmd /c mysql -uroot -p123456 -D " + Constants.JDBC_EXPORTDATABASENAME + " < " + Constants.DATA_BASE_PATH + originalFilename;
             Process process = runtime.exec(command);
             //Process process = runtime.exec("cmd /c mysql -uroot -p123456 -D "+satellite < c:\\mysql\\edu.sql");
             new BufferedReader(new InputStreamReader(process.getInputStream()));
