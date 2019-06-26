@@ -43,7 +43,7 @@ public class TeleDataService {
         for (FieldVO field : fieldDefines){
             //mysqldump -h localhost -u root -p satchain_new 字段定义表>c:\mysql\mytable.sql
             String command = new String("cmd /c mysqldump -h localhost -u"+Constants.JDBC_USER+" -p"+
-                    Constants.JDBC_PASSWORD+" --databases satchain_new --tables "+ satellationId + field.getDeviceName() + " > c:\\mysql\\mytable.sql");
+                    Constants.JDBC_PASSWORD+" --databases satchain_new --tables "+ satellationId + field.getDeviceName() + " >> c:\\mysql\\mytable.sql");
             //String command = new String("cmd /c mysqldump -h localhost -u"+Constants.JDBC_USER+" -p"+
                     //Constants.JDBC_PASSWORD+" --databases "+Constants.JDBC_EXPORTDATABASENAME+ " --tables 2324" + " > c:\\mysql\\mytable.sql");
 
